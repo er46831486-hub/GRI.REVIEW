@@ -1,5 +1,5 @@
 import { allCards, topicName } from "../data.js";
-import { esc, srcLinks, unofficial, topicBar, getTopics, inTopics } from "../ui.js";
+import { esc, srcLinks, topicBar, getTopics, inTopics } from "../ui.js";
 import { load, save } from "../store.js";
 
 // Leitner 五盒：盒 1 出現機率最高
@@ -72,20 +72,18 @@ export function renderCards(root) {
       return;
     }
     const kind = card.dir === "concept" ? "概念卡" : card.dir === "fwd" ? "編號 → 名稱" : "名稱 → 編號";
-    const frontFlag = card.dir === "rev" && card.unofficial;
-    const backFlag = card.dir === "fwd" && card.unofficial;
     stage.innerHTML = `
       <div class="flip" data-flipped="false">
         <button type="button" class="flip-btn" id="flip" aria-label="翻面">
           <span class="flip-inner">
             <span class="face face-front">
               <span class="face-meta">${esc(topicName(card.topic))}　${kind}　盒 ${boxes[card.id] || 1}</span>
-              <span class="face-txt">${esc(card.front)}${unofficial(frontFlag)}</span>
+              <span class="face-txt">${esc(card.front)}</span>
               <span class="face-hint">點一下或按空白鍵翻面</span>
             </span>
             <span class="face face-back" aria-hidden="true">
               <span class="face-meta">${esc(card.front)}</span>
-              <span class="face-txt face-txt-back">${esc(card.back)}${unofficial(backFlag)}</span>
+              <span class="face-txt face-txt-back">${esc(card.back)}</span>
             </span>
           </span>
         </button>
@@ -133,7 +131,7 @@ export function renderCards(root) {
     drawCard();
   };
 
-  root.querySelector("#fb").append(topicBar(refresh));
+  root.querySelector("#fb").append(topicBar(refresh, new Set(allCards.map((c) => c.topic))));
   root.querySelector(".seg").addEventListener("click", (e) => {
     const b = e.target.closest("[data-dir]");
     if (!b) return;

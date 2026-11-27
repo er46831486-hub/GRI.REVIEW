@@ -30,12 +30,13 @@ export const floorById = Object.fromEntries(standards.floors.map((f) => [f.id, f
 // 由 standards.json 自動產生「編號 ⇄ 名稱」雙向卡
 function codeCards() {
   const out = [];
-  const add = (topic, code, name, source, unofficial = false) => {
+  const add = (topic, code, name, source) => {
     const key = code.replace(/\s+/g, "");
-    out.push({ id: `n:${key}:f`, topic, dir: "fwd", front: code, back: name, source, unofficial, isNew: topic === "gri-100" });
-    out.push({ id: `n:${key}:r`, topic, dir: "rev", front: name, back: code, source, unofficial, isNew: topic === "gri-100" });
+    out.push({ id: `n:${key}:f`, topic, dir: "fwd", front: code, back: name, source, isNew: topic === "gri-100" });
+    out.push({ id: `n:${key}:r`, topic, dir: "rev", front: name, back: code, source, isNew: topic === "gri-100" });
   };
   for (const f of standards.floors) {
+    if (f.id === "gri-sector") continue; // 行業準則 11–14 不列入
     const src = (f.sources || [])[0];
     (f.sections || []).forEach((s) => s.disclosures.forEach(([c, n]) => add(f.id, `GRI ${c}`, n, src)));
     (f.disclosures || []).forEach(([c, n]) => add(f.id, `GRI ${c}`, n, src));
@@ -44,11 +45,11 @@ function codeCards() {
         const code = /^GRI/.test(s[0]) ? s[0] : `GRI ${s[0]}`;
         add(f.id, code, s[1], src);
         const det = f.details?.[s[0]];
-        (det?.disclosures || []).forEach(([c, n]) => add(f.id, `GRI ${c}`, n, "gri-topic-en", true));
+        (det?.disclosures || []).forEach(([c, n]) => add(f.id, `GRI ${c}`, n, "gri-topic-en"));
       } else {
         const ssrc = (s.sources || [])[0] || src;
-        add(f.id, s.code, s.zh, ssrc, !!s.zhUnofficial);
-        (s.disclosures || []).forEach(([c, n]) => add(f.id, `GRI ${c}`, n, ssrc, !!s.zhUnofficial));
+        add(f.id, s.code, s.zh, ssrc);
+        (s.disclosures || []).forEach(([c, n]) => add(f.id, `GRI ${c}`, n, ssrc));
       }
     }
   }

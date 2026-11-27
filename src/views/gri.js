@@ -1,13 +1,12 @@
 import { standards, floorById } from "../data.js";
-import { esc, acc, srcLinks, unofficial } from "../ui.js";
+import { esc, acc, srcLinks } from "../ui.js";
 import { load, save } from "../store.js";
 
 // 由上往下：GRI 1 → 418
-const GROUPS = [
+export const GROUPS = [
   { id: "gri-1", code: "GRI 1", short: "GRI 1", kind: "通用準則" },
   { id: "gri-2", code: "GRI 2", short: "GRI 2", kind: "通用準則" },
   { id: "gri-3", code: "GRI 3", short: "GRI 3", kind: "通用準則" },
-  { id: "gri-sector", code: "GRI 11–14", short: "11–14 行業", kind: "行業準則" },
   { id: "gri-100", code: "GRI 101–103", short: "101–103 新準則", kind: "主題準則（新）" },
   { id: "gri-200", code: "GRI 201–207", short: "201–207 經濟", kind: "主題準則" },
   { id: "gri-300", code: "GRI 301–308", short: "301–308 環境", kind: "主題準則" },
@@ -16,13 +15,13 @@ const GROUPS = [
 
 let rowSeq = 0;
 // 一條揭露：編號＋中文名稱（遮罩模式可蓋住）＋英文或說明（可展開）
-function row(code, name, { desc = "", en = "", flag = false } = {}) {
+function row(code, name, { desc = "", en = "" } = {}) {
   const id = `r${++rowSeq}`;
   const hasDesc = !!desc;
   return `<li class="drow">
     <button type="button" class="drow-btn" data-row ${hasDesc ? `aria-expanded="false" aria-controls="${id}"` : ""}>
       <span class="drow-code">${esc(code)}</span>
-      <span class="drow-name"><span class="nm">${esc(name)}</span>${unofficial(flag)}${en ? `<span class="drow-en">${esc(en)}</span>` : ""}</span>
+      <span class="drow-name"><span class="nm">${esc(name)}</span>${en ? `<span class="drow-en">${esc(en)}</span>` : ""}</span>
       ${hasDesc ? '<span class="chev" aria-hidden="true"></span>' : ""}
     </button>
     ${hasDesc ? `<p class="drow-desc" id="${id}" hidden>${esc(desc)}</p>` : ""}
@@ -75,11 +74,11 @@ function groupHtml(g) {
           <div><dt>狀態</dt><dd>${esc(s.status)}</dd></div>
         </dl>
         <p class="body-txt">${esc(s.structure)}</p>
-        ${rows(s.disclosures.map(([c, n, d]) => row(c, n, { desc: d, flag: s.zhUnofficial })))}
+        ${rows(s.disclosures.map(([c, n, d]) => row(c, n, { desc: d })))}
         ${s.alignment ? `<p class="body-txt"><b>對齊：</b>${esc(s.alignment)}</p>` : ""}
         ${srcLinks(s.sources)}`;
       parts.push(
-        acc(`<span class="std-code">${esc(s.code)}</span><span class="nm">${esc(s.zh)}</span>${unofficial(s.zhUnofficial)}`, body, {
+        acc(`<span class="std-code">${esc(s.code)}</span><span class="nm">${esc(s.zh)}</span>`, body, {
           meta: `${s.disclosures.length} 項`,
         })
       );
@@ -96,7 +95,7 @@ function groupHtml(g) {
     const body = `
       ${note ? `<p class="std-note">${esc(note)}</p>` : ""}
       <p class="panel-en">${esc(det.en)}</p>
-      ${rows(det.disclosures.map(([c, n, en]) => row(c, n, { en, flag: true })))}`;
+      ${rows(det.disclosures.map(([c, n, en]) => row(c, n, { en })))}`;
     parts.push(
       acc(`<span class="std-code">${esc(code)}</span><span class="nm">${esc(name)}</span>`, body, {
         meta: `${det.disclosures.length} 項`,
@@ -105,7 +104,6 @@ function groupHtml(g) {
     );
   }
 
-  if (f.detailsNote) parts.push(`<p class="hint">${esc(f.detailsNote)}</p>`);
   if (f.traps?.length) {
     parts.push(`<div class="traps"><h3 class="h-sub">陷阱提示</h3><ul class="plain">${f.traps.map((t) => `<li>${esc(t)}</li>`).join("")}</ul></div>`);
   }
@@ -127,7 +125,7 @@ export function renderGri(root) {
       <button type="button" class="pill" id="expand" aria-pressed="false">全部展開</button>
     </div>
     <nav class="filterbar gri-index" aria-label="跳到">${GROUPS.map((g) => `<a class="pill" href="#/gri" data-jump="${g.id}">${esc(g.short)}</a>`).join("")}</nav>
-    <p class="hint">${esc(standards._meta.basis)}。標「暫譯」的中文名稱尚無官方正體中文版，考試以教材用語為準。</p>
+    <p class="hint">${esc(standards._meta.basis)}。</p>
     <div class="gri-list" id="list">${GROUPS.map(groupHtml).join("")}</div>
   </section>`;
 

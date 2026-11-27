@@ -18,7 +18,6 @@
 
 - **內容只能來自 `content/*.json`**。不可自行加入準則細節、數字、題目或來源；發現內容錯誤時，先修 JSON 並在回報中說明。
 - 每題、每張卡、每個面板都要顯示來源連結。
-- 標記 `zhUnofficial: true` 的中文名稱要加註「暫譯」。
 - 開啟 Vercel Password Protection 可能產生費用，不可自行開啟。
 - 所有 `localStorage` 讀寫包在 `try/catch`。
 - 介面文字一律使用繁體中文（台灣用語）。

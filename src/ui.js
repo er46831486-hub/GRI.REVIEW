@@ -4,8 +4,6 @@ import { load, save } from "./store.js";
 export const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
-export const unofficial = (flag) => (flag ? '<span class="note">暫譯</span>' : "");
-
 export function srcLinks(keys) {
   const list = [...new Set((Array.isArray(keys) ? keys : [keys]).filter(Boolean))];
   if (!list.length) return "";

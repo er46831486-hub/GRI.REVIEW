@@ -382,5 +382,5 @@ main:focus { outline: none; }
 .bar-static { cursor: default; }
 .bar-static:hover { background: transparent; }
 .block-sm { margin-top: var(--sp-4); }
-.masked .nm:not(.shown) + .note + .drow-en, .masked .nm:not(.shown) ~ .drow-en { visibility: hidden; }
+.masked .nm:not(.shown) ~ .drow-en { visibility: hidden; }
 @media (max-width: 40rem) { .gri-index { top: 60px; } .drow-btn { grid-template-columns: 5.5ch minmax(0, 1fr) auto; } .drow-desc { padding-left: var(--sp-2); } }

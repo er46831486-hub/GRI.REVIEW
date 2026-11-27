@@ -37,7 +37,7 @@ export function renderReview(root) {
         .join("")}</ul>`);
     if (x.c.length)
       parts.push(`<h3 class="h-sub">盒 1 的卡片（${x.c.length}）</h3><ul class="plain rv-list">${x.c
-        .map((c) => `<li><p><b>${esc(c.front)}</b>：${esc(c.back)}${c.unofficial ? '<span class="note">暫譯</span>' : ""}</p>${srcLinks(c.source)}</li>`)
+        .map((c) => `<li><p><b>${esc(c.front)}</b>：${esc(c.back)}</p>${srcLinks(c.source)}</li>`)
         .join("")}</ul>`);
     parts.push(`<div class="qnav">
       ${x.q.length ? `<button type="button" class="btn btn-primary" data-go="quiz" data-t="${t}">重練這個主題的錯題</button>` : ""}

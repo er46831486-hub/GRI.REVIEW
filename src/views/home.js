@@ -1,4 +1,5 @@
-import { questions, allCards, spotItems, standards } from "../data.js";
+import { questions, allCards, spotItems } from "../data.js";
+import { GROUPS } from "./gri.js";
 import { esc } from "../ui.js";
 import { load } from "../store.js";
 import { getStats } from "./quiz.js";
@@ -19,7 +20,7 @@ export function renderHome(root) {
   const boxes = getBoxes();
   const spot = getSpot();
   const mods = [
-    ["GRI 條文", "#/gri", load("bld.visited", []).length, standards.floors.length, "組已看過"],
+    ["GRI 條文", "#/gri", load("bld.visited", []).filter((id) => GROUPS.some((g) => g.id === id)).length, GROUPS.length, "組已看過"],
     ["測驗", "#/quiz", Object.keys(stats).length, questions.length, "題做過"],
     ["翻卡", "#/cards", allCards.filter((c) => (boxes[c.id] || 1) >= 3).length, allCards.length, "張到盒 3 以上"],
     ["找碴", "#/spot", Object.keys(spot).length, spotItems.length, "段做過"],
