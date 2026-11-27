@@ -4,18 +4,12 @@ import { load, save } from "./store.js";
 export const esc = (s) =>
   String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
-export function srcLinks(keys) {
-  const list = [...new Set((Array.isArray(keys) ? keys : [keys]).filter(Boolean))];
-  if (!list.length) return "";
-  const links = list
-    .map((k) => {
-      const s = sources[k];
-      if (!s) return "";
-      return `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a><span class="src-pub">（${esc(s.publisher)}）</span>`;
-    })
-    .filter(Boolean)
-    .join("<span class=\"src-sep\">、</span>");
-  return `<p class="src"><span class="src-lbl">來源</span>${links}</p>`;
+// 全站只在最下面放一份資料來源清單
+export function sourceFooter() {
+  const items = Object.values(sources)
+    .map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a><span class="src-pub">（${esc(s.publisher)}）</span></li>`)
+    .join("");
+  return `<div class="wrap"><h2 class="src-head">資料來源</h2><ul class="src-list">${items}</ul></div>`;
 }
 
 let uid = 0;

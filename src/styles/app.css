@@ -73,10 +73,11 @@ main:focus { outline: none; }
 .mod-head .mod-sub { flex: 1 1 260px; }
 .block { margin-top: var(--sp-6); }
 
-/* 來源 */
-.src { margin-top: var(--sp-3); font-size: var(--fs-label); color: var(--c-ink-soft); line-height: 1.6; }
-.src-lbl { font-weight: 500; color: var(--c-ink); margin-right: var(--sp-2); }
-.src a { overflow-wrap: anywhere; }
+/* 資料來源（全站一份，在最下面） */
+.sources { border-top: 1px solid var(--c-accent-line); padding-block: var(--sp-6) var(--sp-7); }
+.src-head { font-size: 1rem; font-weight: 700; margin-bottom: var(--sp-3); }
+.src-list { display: grid; gap: var(--sp-2); font-size: var(--fs-label); line-height: 1.6; }
+.src-list a { overflow-wrap: anywhere; }
 .src-pub { color: var(--c-ink-soft); }
 
 /* 按鈕 */

@@ -1,5 +1,5 @@
 import { frameworks } from "../data.js";
-import { esc, acc, srcLinks } from "../ui.js";
+import { esc, acc } from "../ui.js";
 import { save } from "../store.js";
 
 export function renderCompare(root) {
@@ -30,9 +30,8 @@ export function renderCompare(root) {
           )
           .join("")}
       </div>
-      ${acc("雙重重大性", `<p class="body-txt">${esc(cmp.doubleMateriality)}</p>${srcLinks(["gri-universal", "ifrs-s1"])}`, { cls: "bar-soft" })}
-      ${acc("GRI 與 IFRS 的連結", list(griIfrsLinks) + srcLinks("gri-102-ifrs-statement"))}
-      ${srcLinks(["gri-universal", "ifrs-s1", "tcfd-site", "tcfd-ifrs"])}
+      ${acc("雙重重大性", `<p class="body-txt">${esc(cmp.doubleMateriality)}</p>`, { cls: "bar-soft" })}
+      ${acc("GRI 與 IFRS 的連結", list(griIfrsLinks))}
     </div>
 
     <div class="block">
@@ -46,18 +45,16 @@ export function renderCompare(root) {
         <div class="risk-grp"><p class="risk-lbl">實體風險</p><div class="chips" role="group" aria-label="實體風險">${tcfd.risks.physical.map((r) => `<button type="button" class="pill" data-risk="實體風險" aria-pressed="false">${esc(r)}</button>`).join("")}</div></div>
       </div>
       <p class="risk-out" id="risk-out" aria-live="polite">點一個標籤，看它屬於哪一類。</p>
-      ${srcLinks(["tcfd-site", "tcfd-ifrs"])}
     </div>
 
     <div class="block">
       <h2 class="h-sec">IFRS S1／S2</h2>
-      ${acc(esc(ifrs.s1.title), list(ifrs.s1.points) + srcLinks("ifrs-s1"), { meta: esc(ifrs.s1.issued) })}
-      ${acc(esc(ifrs.s2.title), list(ifrs.s2.points) + srcLinks("ifrs-s2"), { meta: esc(ifrs.s2.issued) })}
+      ${acc(esc(ifrs.s1.title), list(ifrs.s1.points), { meta: esc(ifrs.s1.issued) })}
+      ${acc(esc(ifrs.s2.title), list(ifrs.s2.points), { meta: esc(ifrs.s2.issued) })}
       ${acc(
         "IFRS S2 2025 修正",
         `<dl class="tags"><div><dt>發布</dt><dd>${esc(ifrs.s2.amendment2025.issued)}</dd></div><div><dt>生效</dt><dd>${esc(ifrs.s2.amendment2025.effective)}</dd></div></dl>` +
-          list(ifrs.s2.amendment2025.changes) +
-          srcLinks("ifrs-s2-amend"),
+          list(ifrs.s2.amendment2025.changes),
         { meta: esc(ifrs.s2.amendment2025.issued) }
       )}
     </div>
@@ -69,7 +66,6 @@ export function renderCompare(root) {
         ${taiwan.phases.map((p, i) => `<button type="button" class="tl-seg" data-ph="${i}" aria-pressed="${i === 0}"><span class="tl-year">${esc(p.year)}</span><span class="tl-step">第 ${i + 1} 階段</span></button>`).join("")}
       </div>
       <p class="tl-out" id="tl-out" aria-live="polite">${esc(taiwan.phases[0].who)}</p>
-      ${srcLinks("fsc-roadmap")}
     </div>
   </section>`;
 

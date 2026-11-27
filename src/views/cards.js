@@ -1,5 +1,5 @@
 import { allCards, topicName } from "../data.js";
-import { esc, srcLinks, topicBar, getTopics, inTopics } from "../ui.js";
+import { esc, topicBar, getTopics, inTopics } from "../ui.js";
 import { load, save } from "../store.js";
 
 // Leitner 五盒：盒 1 出現機率最高
@@ -92,8 +92,7 @@ export function renderCards(root) {
         <button type="button" class="btn btn-ghost" data-r="1"><span class="key">1</span>不會</button>
         <button type="button" class="btn btn-ghost" data-r="2"><span class="key">2</span>有點模糊</button>
         <button type="button" class="btn btn-primary" data-r="3"><span class="key">3</span>會了</button>
-      </div>
-      ${srcLinks(card.source)}`;
+      </div>`;
     stage.querySelector("#flip").addEventListener("click", flip);
   };
 

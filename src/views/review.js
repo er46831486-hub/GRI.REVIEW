@@ -1,5 +1,5 @@
 import { questionById, spotItems, cardById, topicName, TOPICS } from "../data.js";
-import { esc, acc, srcLinks, setTopics } from "../ui.js";
+import { esc, acc, setTopics } from "../ui.js";
 import { load, clearAll } from "../store.js";
 import { getWrong } from "./quiz.js";
 import { getSpot } from "./spot.js";
@@ -27,17 +27,17 @@ export function renderReview(root) {
     const parts = [];
     if (x.q.length)
       parts.push(`<h3 class="h-sub">答錯的題目（${x.q.length}）</h3><ul class="plain rv-list">${x.q
-        .map((q) => `<li><p>${esc(q.prompt)}</p><p class="rv-ans">正解：${esc(q.options.find((o) => o[0] === q.answer)[1])}</p>${srcLinks(q.source)}</li>`)
+        .map((q) => `<li><p>${esc(q.prompt)}</p><p class="rv-ans">正解：${esc(q.options.find((o) => o[0] === q.answer)[1])}</p></li>`)
         .join("")}</ul>`);
     if (x.s.length)
       parts.push(`<h3 class="h-sub">找碴漏抓的句子</h3><ul class="plain rv-list">${x.s
         .flatMap(({ item, missed }) =>
-          missed.map((i) => `<li><p>「${esc(item.sentences[i])}」</p><p class="rv-ans">修正：${esc(item.fixes[String(i)])}</p>${srcLinks(item.source)}</li>`)
+          missed.map((i) => `<li><p>「${esc(item.sentences[i])}」</p><p class="rv-ans">修正：${esc(item.fixes[String(i)])}</p></li>`)
         )
         .join("")}</ul>`);
     if (x.c.length)
       parts.push(`<h3 class="h-sub">盒 1 的卡片（${x.c.length}）</h3><ul class="plain rv-list">${x.c
-        .map((c) => `<li><p><b>${esc(c.front)}</b>：${esc(c.back)}</p>${srcLinks(c.source)}</li>`)
+        .map((c) => `<li><p><b>${esc(c.front)}</b>：${esc(c.back)}</p></li>`)
         .join("")}</ul>`);
     parts.push(`<div class="qnav">
       ${x.q.length ? `<button type="button" class="btn btn-primary" data-go="quiz" data-t="${t}">重練這個主題的錯題</button>` : ""}

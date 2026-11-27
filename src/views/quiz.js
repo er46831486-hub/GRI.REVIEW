@@ -1,5 +1,5 @@
 import { questions, questionById, topicName } from "../data.js";
-import { esc, srcLinks, shuffle, topicBar, getTopics, setTopics, inTopics } from "../ui.js";
+import { esc, shuffle, topicBar, getTopics, setTopics, inTopics } from "../ui.js";
 import { load, save } from "../store.js";
 
 const EXAM_N = 20;
@@ -140,10 +140,8 @@ export function renderQuiz(root, params) {
         reveal
           ? `<div class="explain ${chosen === q.answer ? "is-correct" : "is-wrong"}" role="status">
               <p class="verdict">${chosen === q.answer ? "答對了" : "答錯了"}</p>
-              <p class="body-txt">${esc(q.explanation)}</p>${srcLinks(q.source)}</div>`
-          : mode !== "exam"
-            ? srcLinks(q.source)
-            : ""
+              <p class="body-txt">${esc(q.explanation)}</p></div>`
+          : ""
       }
       <div class="qnav">
         ${mode === "exam" ? `<button type="button" class="btn btn-ghost" id="prev" ${i === 0 ? "disabled" : ""}>上一題</button>` : '<button type="button" class="btn btn-ghost" id="quit">結束</button>'}
@@ -260,7 +258,7 @@ export function renderQuiz(root, params) {
       <p class="rv-head"><span class="verdict-tag">${ok ? "答對" : "答錯"}</span>${esc(q.prompt)}</p>
       ${ok ? "" : `<p class="rv-ans">你的答案：${esc(txt(answers[q.id]))}</p>`}
       <p class="rv-ans">正解：${esc(txt(q.answer))}</p>
-      <p class="body-txt">${esc(q.explanation)}</p>${srcLinks(q.source)}</li>`;
+      <p class="body-txt">${esc(q.explanation)}</p></li>`;
   };
 
   const onKey = (e) => {

@@ -1,5 +1,5 @@
 import { standards, floorById } from "../data.js";
-import { esc, acc, srcLinks } from "../ui.js";
+import { esc, acc } from "../ui.js";
 import { load, save } from "../store.js";
 
 // 由上往下：GRI 1 → 418
@@ -75,8 +75,7 @@ function groupHtml(g) {
         </dl>
         <p class="body-txt">${esc(s.structure)}</p>
         ${rows(s.disclosures.map(([c, n, d]) => row(c, n, { desc: d })))}
-        ${s.alignment ? `<p class="body-txt"><b>對齊：</b>${esc(s.alignment)}</p>` : ""}
-        ${srcLinks(s.sources)}`;
+        ${s.alignment ? `<p class="body-txt"><b>對齊：</b>${esc(s.alignment)}</p>` : ""}`;
       parts.push(
         acc(`<span class="std-code">${esc(s.code)}</span><span class="nm">${esc(s.zh)}</span>`, body, {
           meta: `${s.disclosures.length} 項`,
@@ -108,7 +107,6 @@ function groupHtml(g) {
     parts.push(`<div class="traps"><h3 class="h-sub">陷阱提示</h3><ul class="plain">${f.traps.map((t) => `<li>${esc(t)}</li>`).join("")}</ul></div>`);
   }
   if (f.upcoming) parts.push(`<div class="block-sm"><h3 class="h-sub">即將上路</h3><p class="body-txt">${esc(f.upcoming)}</p></div>`);
-  parts.push(srcLinks(f.sources || standards._meta.sources));
   return `<section class="grp" id="g-${g.id}" data-grp="${g.id}" tabindex="-1">${parts.join("")}</section>`;
 }
 

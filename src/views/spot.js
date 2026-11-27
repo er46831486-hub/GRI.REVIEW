@@ -1,5 +1,5 @@
 import { spotItems, topicName } from "../data.js";
-import { esc, srcLinks, topicBar, getTopics, inTopics } from "../ui.js";
+import { esc, topicBar, getTopics, inTopics } from "../ui.js";
 import { load, save } from "../store.js";
 
 export const getSpot = () => load("spot.result", {}); // { id: { missed: [], false: [] } }
@@ -69,8 +69,7 @@ export function renderSpot(root, params) {
       }
       <div class="qnav">
         ${revealed ? '<button type="button" class="btn btn-ghost" id="redo">重做</button><button type="button" class="btn btn-primary" id="nextitem">下一段</button>' : `<button type="button" class="btn btn-primary" id="send" ${picked.size ? "" : "disabled"}>送出</button>`}
-      </div>
-      ${srcLinks(s.source)}`;
+      </div>`;
   };
 
   stage.addEventListener("click", (e) => {

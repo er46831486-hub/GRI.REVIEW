@@ -7,6 +7,7 @@ import { renderCards } from "./views/cards.js";
 import { renderQuiz } from "./views/quiz.js";
 import { renderSpot } from "./views/spot.js";
 import { renderReview } from "./views/review.js";
+import { sourceFooter } from "./ui.js";
 
 const routes = {
   "": renderHome,
@@ -50,5 +51,6 @@ document.addEventListener("click", (e) => {
   panel.hidden = !open;
 });
 
+document.getElementById("sources").innerHTML = sourceFooter();
 window.addEventListener("hashchange", go);
 go();
