@@ -75,8 +75,18 @@ main:focus { outline: none; }
 
 /* 資料來源（全站一份，在最下面） */
 .sources { border-top: 1px solid var(--c-accent-line); padding-block: var(--sp-6) var(--sp-7); }
-.src-head { font-size: 1rem; font-weight: 700; margin-bottom: var(--sp-3); }
-.src-list { display: grid; gap: var(--sp-2); font-size: var(--fs-label); line-height: 1.6; }
+.src-dd { border: 1px solid var(--c-accent-line); border-radius: var(--radius); }
+.src-sum {
+  display: flex; align-items: center; gap: var(--sp-3); min-height: 52px; padding: var(--sp-2) var(--sp-4);
+  font-weight: 700; cursor: pointer; list-style: none; border-radius: var(--radius);
+  transition: background-color var(--dur) var(--ease);
+}
+.src-sum::-webkit-details-marker { display: none; }
+.src-sum:hover { background: var(--c-accent-soft); }
+.src-sum > span:first-child { flex: 1; }
+.src-count { font-size: var(--fs-label); font-weight: 500; color: var(--c-ink-soft); }
+.src-dd[open] .chev { transform: rotate(225deg) translate(-2px, -2px); }
+.src-list { display: grid; gap: var(--sp-2); padding: var(--sp-3) var(--sp-4) var(--sp-4); border-top: 1px solid var(--c-line); font-size: var(--fs-label); line-height: 1.6; }
 .src-list a { overflow-wrap: anywhere; }
 .src-pub { color: var(--c-ink-soft); }
 

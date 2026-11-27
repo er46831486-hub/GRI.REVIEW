@@ -9,7 +9,7 @@ export function sourceFooter() {
   const items = Object.values(sources)
     .map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a><span class="src-pub">（${esc(s.publisher)}）</span></li>`)
     .join("");
-  return `<div class="wrap"><h2 class="src-head">資料來源</h2><ul class="src-list">${items}</ul></div>`;
+  return `<div class="wrap"><details class="src-dd"><summary class="src-sum"><span>資料來源</span><span class="src-count">${Object.keys(sources).length} 筆</span><span class="chev" aria-hidden="true"></span></summary><ul class="src-list">${items}</ul></details></div>`;
 }
 
 let uid = 0;

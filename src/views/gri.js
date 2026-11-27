@@ -90,7 +90,6 @@ function groupHtml(g) {
     );
   }
 
-  if (f.upcoming) parts.push(`<div class="block-sm"><h3 class="h-sub">即將上路</h3><p class="body-txt">${esc(f.upcoming)}</p></div>`);
   return `<section class="grp" id="g-${g.id}" data-grp="${g.id}" tabindex="-1">${parts.join("")}</section>`;
 }
 

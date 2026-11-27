@@ -18,7 +18,7 @@
 |---|---|
 | `CLAUDE.md` | Claude Code 的工作說明與鐵則 |
 | `docs/SPEC.md` | 完整規格：設計、功能、部署、驗收 |
-| `content/` | 題庫與知識內容（48 題、20 張概念卡＋約 190 張自動編號卡、8 段找碴） |
+| `content/` | 題庫與知識內容（124 題、20 張概念卡＋約 360 張自動編號卡、8 段找碴） |
 | `scripts/validate-content.mjs` | 內容驗證：`node scripts/validate-content.mjs` |
 
 ## 之後要改內容

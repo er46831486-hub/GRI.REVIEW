@@ -2,8 +2,9 @@ import { questions, questionById, topicName } from "../data.js";
 import { esc, shuffle, topicBar, getTopics, setTopics, inTopics } from "../ui.js";
 import { load, save } from "../store.js";
 
-const EXAM_N = 20;
-const EXAM_MS = 15 * 60 * 1000;
+const EXAM_N = 30;
+const EXAM_MIN = 25;
+const EXAM_MS = EXAM_MIN * 60 * 1000;
 const MODES = [["practice", "練習"], ["exam", "模擬考"], ["retry", "錯題重練"]];
 
 export const getWrong = () => load("quiz.wrong", []);
@@ -46,7 +47,7 @@ export function renderQuiz(root, params) {
         mode === "practice"
           ? "<p>依主題篩選，逐題作答，答完馬上看解析與來源。</p>"
           : mode === "exam"
-            ? `<p>從全部題庫隨機抽 ${EXAM_N} 題，限時 15 分鐘。作答期間不顯示答案，交卷後一次看成績。主題篩選不適用。</p>`
+            ? `<p>從全部題庫隨機抽 ${EXAM_N} 題，限時 ${EXAM_MIN} 分鐘。作答期間不顯示答案，交卷後一次看成績。主題篩選不適用。</p>`
             : `<p>只出答錯過的題，答對就從錯題本移除。目前有 ${wrongN} 題。</p>`
       }</div>
       <div id="fb"${mode === "exam" ? " hidden" : ""}></div>
