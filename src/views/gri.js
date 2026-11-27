@@ -74,7 +74,7 @@ function groupHtml(g) {
     const code = /^GRI/.test(num) ? num : `GRI ${num}`;
     const det = f.details?.[num];
     if (!det) {
-      // 行業準則：只有名稱
+      // 沒有細項的準則：只顯示名稱
       parts.push(`<div class="bar bar-flat"><p class="bar-head bar-static"><span class="bar-title"><span class="std-code">${esc(code)}</span><span class="nm">${esc(name)}</span></span></p></div>`);
       continue;
     }
@@ -132,7 +132,7 @@ export function renderGri(root) {
   if ("IntersectionObserver" in window) {
     io = new IntersectionObserver(
       (entries) => entries.forEach((en) => en.isIntersecting && markVisited(en.target.dataset.grp)),
-      { rootMargin: "0px 0px -60% 0px" }
+      { rootMargin: "-45% 0px -45% 0px" } // 經過畫面中央就算看過
     );
     list.querySelectorAll(".grp").forEach((s) => io.observe(s));
   }
@@ -160,6 +160,8 @@ export function renderGri(root) {
     (e) => {
       const b = e.target.closest("[data-row], [data-acc]");
       if (!b) return;
+      const grp = b.closest("[data-grp]");
+      if (grp) markVisited(grp.dataset.grp);
       if (mask) {
         const nm = b.querySelector(".nm");
         if (nm && !nm.classList.contains("shown")) {

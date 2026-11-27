@@ -5,11 +5,11 @@
 ## 怎麼開始
 
 1. 解壓縮，在終端機進入資料夾。
-2. （建議）`git init` 並推上你自己的 GitHub 私人 repo。
+2. （建議）`git init` 並推上你自己的 GitHub repo。
 3. 在資料夾裡啟動 Claude Code，輸入：
 
    ```
-   讀 CLAUDE.md 和 docs/SPEC.md，照順序實作並部署到 Vercel。
+   讀 CLAUDE.md 和 docs/SPEC.md，照順序實作並以 GitHub Pages 部署。
    ```
 
 ## 內容
@@ -18,7 +18,7 @@
 |---|---|
 | `CLAUDE.md` | Claude Code 的工作說明與鐵則 |
 | `docs/SPEC.md` | 完整規格：設計、功能、部署、驗收 |
-| `content/` | 題庫與知識內容（124 題、20 張概念卡＋約 360 張自動編號卡、8 段找碴） |
+| `content/` | 題庫與知識內容（123 題、20 張概念卡＋約 360 張自動編號卡、8 段找碴） |
 | `scripts/validate-content.mjs` | 內容驗證：`node scripts/validate-content.mjs` |
 
 ## 之後要改內容

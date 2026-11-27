@@ -31,7 +31,7 @@ P0 做完就先部署一次，再做 P1。
 |---|---|
 | `content/standards.json` | GRI 1、2、3、101–103、200、300、400（另含行業準則資料，但 GRI 條文頁與翻卡不列入）；200／300／400 系列的揭露細項在 `details`（中文＋英文原文） |
 | `content/frameworks.json` | 三欄對照、TCFD 11 項建議、IFRS S1／S2 重點與 2025 修正、台灣接軌 |
-| `content/quiz.json` | 124 題選擇題，每題附解析與來源 |
+| `content/quiz.json` | 123 題選擇題，每題附解析與來源 |
 | `content/flashcards.json` | 20 張概念卡；另須由程式從 `standards.json` 自動產生編號卡 |
 | `content/spot-the-error.json` | 8 段找碴題 |
 | `content/sources.json` | 所有來源的標題、發布者與網址 |
@@ -178,21 +178,15 @@ P0 做完就先部署一次，再做 P1。
 
 ---
 
-## 6. 部署：Vercel，並限制存取
+## 6. 部署：GitHub Pages（公開）
 
-使用者要求「只有擁有網站連結的人才能檢視」，且已選擇用 Vercel 真正限制存取。
+使用者選擇以 GitHub Pages 公開發布，網址：https://er46831486-hub.github.io/GRI.REVIEW/
 
-1. 用 Vercel CLI 或 Vercel MCP 建立專案並部署（`vercel deploy --prod`）。
-2. 開啟 **Deployment Protection**：
-   - 先用 `get_project_deployment_protection` 查目前設定與方案可用的選項。
-   - 啟用 Vercel Authentication，涵蓋範圍盡量包含 production（`ssoProtection.deploymentType`，方案允許時用 `all`）。
-   - 用 **Shareable Link**（Vercel MCP `get_access_to_vercel_url`，或 dashboard 的 Share 按鈕）產生可繞過保護的連結，交給使用者。
-3. **注意方案限制**：Hobby 方案的 Standard Protection 可能不保護 production 網域本身。部署後務必用無痕視窗實測：
-   - 直接開 production 網址 → 應被擋下
-   - 開 Shareable Link → 應能看到網站
-   - 若 production 網域無法保護，改為只分享受保護的部署網址＋Shareable Link，並清楚告訴使用者哪個網址可分享、哪個不可以。
-4. **Password Protection 可能產生費用**，不可自行開啟；需要時請使用者自己在 dashboard 決定。
-5. 部署完成後回報：可分享的連結、保護方式、實測結果。
+1. `.github/workflows/pages.yml`：推到 `main` 時自動執行 `npm ci` → `npm run build`（先驗證內容）→ 發布 `dist/`；也可手動觸發（workflow_dispatch）。
+2. repo 的 Settings → Pages → Source 須設為 **GitHub Actions**。
+3. Settings → Environments → `github-pages` 的 Deployment branches 須允許 `main`，否則推到 `main` 的部署會被保護規則擋下。
+4. 網站與 repo 皆為公開：任何拿到網址的人都能看，不可放入任何個人資料。網站加了 `noindex`，只是不讓搜尋引擎收錄，不等於限制存取。
+5. 部署完成後回報：網址與部署結果。
 
 ---
 
@@ -205,4 +199,4 @@ P0 做完就先部署一次，再做 P1。
 - [ ] reduced-motion 下沒有翻轉與滑動動畫
 - [ ] `scripts/validate-content.mjs` 通過
 - [ ] Hallmark sloplint 無 FAIL
-- [ ] 部署成功，無痕視窗實測：未授權網址被擋、分享連結可看
+- [ ] 部署成功，網站可正常開啟；程式碼與網站都沒有個人資料

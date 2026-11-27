@@ -45,7 +45,7 @@ export function renderQuiz(root, params) {
       <div class="seg seg-big" role="group" aria-label="模式">${MODES.map(([v, l]) => `<button type="button" class="pill" data-mode="${v}" aria-pressed="${v === mode}">${l}</button>`).join("")}</div>
       <div class="bar bar-soft mode-desc">${
         mode === "practice"
-          ? "<p>依主題篩選，逐題作答，答完馬上看解析與來源。</p>"
+          ? "<p>依主題篩選，逐題作答，答完馬上看解析。</p>"
           : mode === "exam"
             ? `<p>從全部題庫隨機抽 ${EXAM_N} 題，限時 ${EXAM_MIN} 分鐘。作答期間不顯示答案，交卷後一次看成績。主題篩選不適用。</p>`
             : `<p>只出答錯過的題，答對就從錯題本移除。目前有 ${wrongN} 題。</p>`
@@ -61,7 +61,7 @@ export function renderQuiz(root, params) {
       countEl.textContent = mode === "exam" ? `將出 ${Math.min(EXAM_N, questions.length)} 題` : `符合條件：${n} 題`;
       root.querySelector("#start").disabled = n === 0;
     };
-    root.querySelector("#fb").append(topicBar(updateCount));
+    root.querySelector("#fb").append(topicBar(updateCount, new Set(questions.map((q) => q.topic))));
     root.querySelector(".seg").addEventListener("click", (e) => {
       const b = e.target.closest("[data-mode]");
       if (!b) return;
