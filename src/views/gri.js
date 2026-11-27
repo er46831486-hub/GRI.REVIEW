@@ -28,7 +28,6 @@ function row(code, name, { desc = "", en = "" } = {}) {
   </li>`;
 }
 const rows = (list) => `<ul class="drows">${list.join("")}</ul>`;
-const mnemo = (t) => `<div class="mnemo"><span class="mnemo-lbl">口訣</span><p>${esc(t)}</p></div>`;
 
 function groupHtml(g) {
   const f = floorById[g.id];
@@ -40,21 +39,9 @@ function groupHtml(g) {
     <p class="lede">${esc(f.oneLiner)}</p>
   </header>`);
 
-  if (g.id === "gri-100") {
-    parts.push(`<div class="oldnew">
-      <p class="oldnew-lbl">新舊對照</p>
-      <ul class="oldnew-list">
-        <li><span>304</span><span class="oldnew-to">取代為</span><b>101</b></li>
-        <li><span>305-1~5＋201-2</span><span class="oldnew-to">取代為</span><b>102</b></li>
-        <li><span>302</span><span class="oldnew-to">取代為</span><b>103</b></li>
-      </ul>
-    </div>`);
-  }
-  if (f.mnemonic) parts.push(mnemo(f.mnemonic));
-
   for (const kp of f.keyPoints || []) {
     parts.push(
-      acc(esc(kp.title), `<ul class="plain">${kp.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` + (kp.mnemonic ? mnemo(kp.mnemonic) : ""))
+      acc(esc(kp.title), `<ul class="plain">${kp.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`)
     );
   }
   for (const s of f.sections || []) {
@@ -103,9 +90,6 @@ function groupHtml(g) {
     );
   }
 
-  if (f.traps?.length) {
-    parts.push(`<div class="traps"><h3 class="h-sub">陷阱提示</h3><ul class="plain">${f.traps.map((t) => `<li>${esc(t)}</li>`).join("")}</ul></div>`);
-  }
   if (f.upcoming) parts.push(`<div class="block-sm"><h3 class="h-sub">即將上路</h3><p class="body-txt">${esc(f.upcoming)}</p></div>`);
   return `<section class="grp" id="g-${g.id}" data-grp="${g.id}" tabindex="-1">${parts.join("")}</section>`;
 }

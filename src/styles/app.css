@@ -138,8 +138,6 @@ main:focus { outline: none; }
 .mnemo { display: flex; gap: var(--sp-3); align-items: baseline; background: var(--c-accent); border: 1px solid var(--c-accent-line); border-radius: var(--radius); padding: var(--sp-3) var(--sp-4); margin-block: var(--sp-3); }
 .mnemo p { font-weight: 700; }
 .mnemo-lbl { flex: none; font-size: var(--fs-label); font-weight: 500; color: var(--c-primary-strong); }
-.traps { margin-top: var(--sp-4); padding: var(--sp-2) var(--sp-4) var(--sp-3); border: 1px solid var(--c-wrong); background: var(--c-wrong-bg); border-radius: var(--radius); }
-.traps .h-sub { color: var(--c-wrong); margin-top: var(--sp-2); }
 
 /* GRI 條文列 */
 .mod-head .toggle {
@@ -176,12 +174,6 @@ main:focus { outline: none; }
 .panel-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-1) var(--sp-3); font-size: var(--fs-title); font-weight: 700; }
 .panel-code { font-size: var(--fs-display); font-weight: 900; color: var(--c-primary); line-height: 1.1; }
 .panel-head .lede { margin-top: var(--sp-2); }
-.oldnew { padding: var(--sp-3) var(--sp-4); border: 1px solid var(--c-accent-line); border-radius: var(--radius); margin-block: var(--sp-3); }
-.oldnew-lbl { font-size: var(--fs-label); font-weight: 500; color: var(--c-ink-soft); }
-.oldnew-list { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-5); margin-top: var(--sp-1); }
-.oldnew-list li { display: inline-flex; align-items: baseline; gap: var(--sp-2); font-weight: 500; }
-.oldnew-list b { font-weight: 900; font-size: 1.25rem; color: var(--c-primary); }
-.oldnew-to { font-size: 0.75rem; color: var(--c-ink-soft); }
 .tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-2) 0; }
 .tags div { display: flex; gap: var(--sp-2); align-items: baseline; padding: var(--sp-1) var(--sp-3); background: var(--c-accent); border-radius: var(--radius); font-size: var(--fs-label); }
 .tags dt { font-weight: 700; color: var(--c-primary-strong); }
