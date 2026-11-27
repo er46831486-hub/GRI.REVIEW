@@ -3,7 +3,14 @@
     "version": "2026-11-27",
     "basis": "GRI 新準則版（GRI 101 已生效；GRI 102／103 已發布、2027 生效）",
     "note": "中文名稱：通用準則與 2016–2020 主題準則採 GRI 官方正體中文版用語；GRI 101／102／103 尚無官方正體中文版，中文為暫譯，標記 zhUnofficial: true。考試時以教材用語為準。",
-    "sources": ["gri-zh-tw", "gri-101", "gri-102", "gri-103", "gri-sector-alignment", "gri-labor-project"]
+    "sources": [
+      "gri-zh-tw",
+      "gri-101",
+      "gri-102",
+      "gri-103",
+      "gri-sector-alignment",
+      "gri-labor-project"
+    ]
   },
   "floors": [
     {
@@ -15,23 +22,64 @@
       "en": "Foundation 2021",
       "oneLiner": "規則手冊：怎麼使用整套 GRI、什麼叫「依循」。",
       "keyPoints": [
-        { "title": "報導原則（8 項）", "items": ["正確性", "平衡性", "清晰性", "可比性", "完整性", "永續性脈絡", "時效性", "可驗證性"], "mnemonic": "正平清比，完永時驗" },
-        { "title": "依循 GRI 準則的 9 項要求", "items": [
-          "要求 1：應用報導原則",
-          "要求 2：報導 GRI 2 一般揭露",
-          "要求 3：決定重大主題",
-          "要求 4：報導 GRI 3 重大主題揭露",
-          "要求 5：報導每個重大主題的 GRI 主題準則揭露",
-          "要求 6：為無法遵循的揭露項目或要求提供省略原因",
-          "要求 7：發布 GRI 內容索引",
-          "要求 8：提供使用聲明",
-          "要求 9：通知 GRI"
-        ]},
-        { "title": "兩種使用方式", "items": ["依循 GRI 準則（in accordance with）：須符合全部 9 項要求", "參考 GRI 準則（with reference to）：只報導部分資訊，仍須發布內容索引、提供使用聲明、通知 GRI"] },
-        { "title": "省略原因（4 種）", "items": ["不適用", "法律禁止", "保密限制", "資訊無法取得／不完整"] },
-        { "title": "核心概念", "items": ["衝擊（對經濟、環境、人的影響，含人權）", "重大主題", "盡職調查", "利害關係人"] }
+        {
+          "title": "報導原則（8 項）",
+          "items": [
+            "正確性",
+            "平衡性",
+            "清晰性",
+            "可比性",
+            "完整性",
+            "永續性脈絡",
+            "時效性",
+            "可驗證性"
+          ],
+          "mnemonic": "正平清比，完永時驗"
+        },
+        {
+          "title": "依循 GRI 準則的 9 項要求",
+          "items": [
+            "要求 1：應用報導原則",
+            "要求 2：報導 GRI 2 一般揭露",
+            "要求 3：決定重大主題",
+            "要求 4：報導 GRI 3 重大主題揭露",
+            "要求 5：報導每個重大主題的 GRI 主題準則揭露",
+            "要求 6：為無法遵循的揭露項目或要求提供省略原因",
+            "要求 7：發布 GRI 內容索引",
+            "要求 8：提供使用聲明",
+            "要求 9：通知 GRI"
+          ]
+        },
+        {
+          "title": "兩種使用方式",
+          "items": [
+            "依循 GRI 準則（in accordance with）：須符合全部 9 項要求",
+            "參考 GRI 準則（with reference to）：只報導部分資訊，仍須發布內容索引、提供使用聲明、通知 GRI"
+          ]
+        },
+        {
+          "title": "省略原因（4 種）",
+          "items": [
+            "不適用",
+            "法律禁止",
+            "保密限制",
+            "資訊無法取得／不完整"
+          ]
+        },
+        {
+          "title": "核心概念",
+          "items": [
+            "衝擊（對經濟、環境、人的影響，含人權）",
+            "重大主題",
+            "盡職調查",
+            "利害關係人"
+          ]
+        }
       ],
-      "sources": ["gri-zh-tw", "gri-universal"]
+      "sources": [
+        "gri-zh-tw",
+        "gri-universal"
+      ]
     },
     {
       "id": "gri-2",
@@ -42,25 +90,166 @@
       "en": "General Disclosures 2021",
       "oneLiner": "組織的身分證：是誰、怎麼治理、政策與利害關係人議合。",
       "sections": [
-        { "title": "組織及其報導實務", "range": "2-1 至 2-5", "disclosures": [
-          ["2-1", "組織詳細資訊"], ["2-2", "組織永續報導中包含的實體"], ["2-3", "報導期間、頻率及聯絡人"], ["2-4", "資訊重編"], ["2-5", "外部保證／確信"]
-        ]},
-        { "title": "活動與工作者", "range": "2-6 至 2-8", "disclosures": [
-          ["2-6", "活動、價值鏈和其他商業關係"], ["2-7", "員工"], ["2-8", "非員工的工作者"]
-        ]},
-        { "title": "治理", "range": "2-9 至 2-21", "disclosures": [
-          ["2-9", "治理結構及組成"], ["2-10", "最高治理單位的提名與遴選"], ["2-11", "最高治理單位的主席"], ["2-12", "最高治理單位於監督衝擊管理的角色"], ["2-13", "衝擊管理的負責人"], ["2-14", "最高治理單位於永續報導的角色"], ["2-15", "利益衝突"], ["2-16", "溝通關鍵重大事件"], ["2-17", "最高治理單位的群體智識"], ["2-18", "最高治理單位的績效評估"], ["2-19", "薪酬政策"], ["2-20", "薪酬決定流程"], ["2-21", "年度總薪酬比率"]
-        ]},
-        { "title": "策略、政策與實務", "range": "2-22 至 2-28", "disclosures": [
-          ["2-22", "永續發展策略的聲明"], ["2-23", "政策承諾"], ["2-24", "納入政策承諾"], ["2-25", "補救負面衝擊的程序"], ["2-26", "尋求建議和提出疑慮的機制"], ["2-27", "法規遵循"], ["2-28", "公協會的會員資格"]
-        ]},
-        { "title": "利害關係人議合", "range": "2-29 至 2-30", "disclosures": [
-          ["2-29", "利害關係人議合方針"], ["2-30", "團體協約"]
-        ]}
+        {
+          "title": "組織及其報導實務",
+          "range": "2-1 至 2-5",
+          "disclosures": [
+            [
+              "2-1",
+              "組織詳細資訊"
+            ],
+            [
+              "2-2",
+              "組織永續報導中包含的實體"
+            ],
+            [
+              "2-3",
+              "報導期間、頻率及聯絡人"
+            ],
+            [
+              "2-4",
+              "資訊重編"
+            ],
+            [
+              "2-5",
+              "外部保證／確信"
+            ]
+          ]
+        },
+        {
+          "title": "活動與工作者",
+          "range": "2-6 至 2-8",
+          "disclosures": [
+            [
+              "2-6",
+              "活動、價值鏈和其他商業關係"
+            ],
+            [
+              "2-7",
+              "員工"
+            ],
+            [
+              "2-8",
+              "非員工的工作者"
+            ]
+          ]
+        },
+        {
+          "title": "治理",
+          "range": "2-9 至 2-21",
+          "disclosures": [
+            [
+              "2-9",
+              "治理結構及組成"
+            ],
+            [
+              "2-10",
+              "最高治理單位的提名與遴選"
+            ],
+            [
+              "2-11",
+              "最高治理單位的主席"
+            ],
+            [
+              "2-12",
+              "最高治理單位於監督衝擊管理的角色"
+            ],
+            [
+              "2-13",
+              "衝擊管理的負責人"
+            ],
+            [
+              "2-14",
+              "最高治理單位於永續報導的角色"
+            ],
+            [
+              "2-15",
+              "利益衝突"
+            ],
+            [
+              "2-16",
+              "溝通關鍵重大事件"
+            ],
+            [
+              "2-17",
+              "最高治理單位的群體智識"
+            ],
+            [
+              "2-18",
+              "最高治理單位的績效評估"
+            ],
+            [
+              "2-19",
+              "薪酬政策"
+            ],
+            [
+              "2-20",
+              "薪酬決定流程"
+            ],
+            [
+              "2-21",
+              "年度總薪酬比率"
+            ]
+          ]
+        },
+        {
+          "title": "策略、政策與實務",
+          "range": "2-22 至 2-28",
+          "disclosures": [
+            [
+              "2-22",
+              "永續發展策略的聲明"
+            ],
+            [
+              "2-23",
+              "政策承諾"
+            ],
+            [
+              "2-24",
+              "納入政策承諾"
+            ],
+            [
+              "2-25",
+              "補救負面衝擊的程序"
+            ],
+            [
+              "2-26",
+              "尋求建議和提出疑慮的機制"
+            ],
+            [
+              "2-27",
+              "法規遵循"
+            ],
+            [
+              "2-28",
+              "公協會的會員資格"
+            ]
+          ]
+        },
+        {
+          "title": "利害關係人議合",
+          "range": "2-29 至 2-30",
+          "disclosures": [
+            [
+              "2-29",
+              "利害關係人議合方針"
+            ],
+            [
+              "2-30",
+              "團體協約"
+            ]
+          ]
+        }
       ],
       "mnemonic": "5 區切點：5・8・21・28・30（組織 → 人 → 治理 → 政策 → 利害關係人）",
-      "traps": ["GRI 307 環境法規遵循、GRI 419 社會經濟法規遵循已併入 2-27 法規遵循", "2-21 是薪酬「比率」，2-19 是薪酬「政策」，2-20 是「決定流程」"],
-      "sources": ["gri-zh-tw", "gri-universal"]
+      "traps": [
+        "GRI 307 環境法規遵循、GRI 419 社會經濟法規遵循已併入 2-27 法規遵循",
+        "2-21 是薪酬「比率」，2-19 是薪酬「政策」，2-20 是「決定流程」"
+      ],
+      "sources": [
+        "gri-zh-tw",
+        "gri-universal"
+      ]
     },
     {
       "id": "gri-3",
@@ -70,12 +259,43 @@
       "zh": "重大主題 2021",
       "en": "Material Topics 2021",
       "oneLiner": "怎麼選、選了啥、怎麼管。",
-      "disclosures": [["3-1", "決定重大主題的流程"], ["3-2", "重大主題列表"], ["3-3", "重大主題管理"]],
-      "keyPoints": [
-        { "title": "決定重大主題 4 步驟", "items": ["1. 了解組織脈絡", "2. 鑑別實際與潛在衝擊", "3. 評估衝擊的顯著性", "4. 排序最顯著的衝擊以進行報導"] },
-        { "title": "衝擊顯著性怎麼評", "items": ["負面衝擊：嚴重性（規模、範疇、不可補救性）＋可能性", "正面衝擊：規模、範疇＋可能性", "潛在負面人權衝擊：嚴重性優先於可能性"] }
+      "disclosures": [
+        [
+          "3-1",
+          "決定重大主題的流程"
+        ],
+        [
+          "3-2",
+          "重大主題列表"
+        ],
+        [
+          "3-3",
+          "重大主題管理"
+        ]
       ],
-      "sources": ["gri-zh-tw", "gri-universal"]
+      "keyPoints": [
+        {
+          "title": "決定重大主題 4 步驟",
+          "items": [
+            "1. 了解組織脈絡",
+            "2. 鑑別實際與潛在衝擊",
+            "3. 評估衝擊的顯著性",
+            "4. 排序最顯著的衝擊以進行報導"
+          ]
+        },
+        {
+          "title": "衝擊顯著性怎麼評",
+          "items": [
+            "負面衝擊：嚴重性（規模、範疇、不可補救性）＋可能性",
+            "正面衝擊：規模、範疇＋可能性",
+            "潛在負面人權衝擊：嚴重性優先於可能性"
+          ]
+        }
+      ],
+      "sources": [
+        "gri-zh-tw",
+        "gri-universal"
+      ]
     },
     {
       "id": "gri-100",
@@ -86,60 +306,177 @@
       "oneLiner": "新編號系統：用 1xx 取代舊的 3xx 環境準則。",
       "standards": [
         {
-          "code": "GRI 101", "zh": "生物多樣性 2024", "zhUnofficial": true, "en": "Biodiversity 2024",
-          "effective": "2026-01-01 起出版的報告適用", "status": "已生效",
+          "code": "GRI 101",
+          "zh": "生物多樣性 2024",
+          "zhUnofficial": true,
+          "en": "Biodiversity 2024",
+          "effective": "2026-01-01 起出版的報告適用",
+          "status": "已生效",
           "replaces": "GRI 304：生物多樣性 2016（2026-01-01 廢止）",
           "structure": "第 1 節主題管理揭露 3 項（101-1 至 101-3）＋第 2 節主題揭露 5 項（101-4 至 101-8）",
           "disclosures": [
-            ["101-1", "遏止並扭轉生物多樣性流失的政策", "是否參照昆明－蒙特婁全球生物多樣性綱要（GBF）的 2050 目標與 2030 目標"],
-            ["101-2", "生物多樣性衝擊的管理", "減緩層級：避免 → 減少 → 復育／復原 → 抵換，另含轉型與額外保育行動"],
-            ["101-3", "取得與利益分享", "遺傳資源與相關傳統知識的取得與利益分享（ABS）"],
-            ["101-4", "生物多樣性衝擊的鑑別", "如何找出衝擊最顯著的據點，以及供應鏈中的產品與服務"],
-            ["101-5", "具生物多樣性衝擊的地點", "據點位置與面積（公頃）、是否位於生態敏感區或其鄰近"],
-            ["101-6", "生物多樣性流失的直接驅動因子", "土地／海洋利用變化、物種採捕、取水耗水、污染、外來入侵種"],
-            ["101-7", "生物多樣性狀態的變化", "生態系類型、面積與狀況（基準年 vs 本期）"],
-            ["101-8", "生態系服務", "受影響的生態系服務與受益者"]
+            [
+              "101-1",
+              "遏止並扭轉生物多樣性流失的政策",
+              "是否參照昆明－蒙特婁全球生物多樣性綱要（GBF）的 2050 目標與 2030 目標"
+            ],
+            [
+              "101-2",
+              "生物多樣性衝擊的管理",
+              "減緩層級：避免 → 減少 → 復育／復原 → 抵換，另含轉型與額外保育行動"
+            ],
+            [
+              "101-3",
+              "取得與利益分享",
+              "遺傳資源與相關傳統知識的取得與利益分享（ABS）"
+            ],
+            [
+              "101-4",
+              "生物多樣性衝擊的鑑別",
+              "如何找出衝擊最顯著的據點，以及供應鏈中的產品與服務"
+            ],
+            [
+              "101-5",
+              "具生物多樣性衝擊的地點",
+              "據點位置與面積（公頃）、是否位於生態敏感區或其鄰近"
+            ],
+            [
+              "101-6",
+              "生物多樣性流失的直接驅動因子",
+              "土地／海洋利用變化、物種採捕、取水耗水、污染、外來入侵種"
+            ],
+            [
+              "101-7",
+              "生物多樣性狀態的變化",
+              "生態系類型、面積與狀況（基準年 vs 本期）"
+            ],
+            [
+              "101-8",
+              "生態系服務",
+              "受影響的生態系服務與受益者"
+            ]
           ],
           "alignment": "對齊 TNFD、昆明－蒙特婁 GBF；以「生態敏感區」取代舊稱「高生物多樣性價值區域」",
-          "sources": ["gri-101", "gri-101-final-draft"]
+          "sources": [
+            "gri-101",
+            "gri-101-final-draft"
+          ]
         },
         {
-          "code": "GRI 102", "zh": "氣候變遷 2025", "zhUnofficial": true, "en": "Climate Change 2025",
-          "effective": "2027-01-01 起出版的報告適用，可提前採用", "status": "已發布，尚未強制",
+          "code": "GRI 102",
+          "zh": "氣候變遷 2025",
+          "zhUnofficial": true,
+          "en": "Climate Change 2025",
+          "effective": "2027-01-01 起出版的報告適用，可提前採用",
+          "status": "已發布，尚未強制",
           "replaces": "GRI 305：排放 2016 的 305-1 至 305-5，以及 GRI 201-2（305-6 臭氧層破壞物質、305-7 氮氧化物與硫氧化物等仍保留）",
           "structure": "第 1 節主題管理揭露 2 項（102-1、102-2）＋第 2 節主題揭露 8 項（102-3 至 102-10）",
           "disclosures": [
-            ["102-1", "氣候變遷減緩的轉型計畫", "對齊 1.5°C 最新科學、計畫支出、治理、公正轉型、遊說一致性；沒有計畫須說明原因與時程"],
-            ["102-2", "氣候變遷調適計畫", "調適計畫及其對人與環境的衝擊"],
-            ["102-3", "公正轉型", "轉型對工作者、社區、原住民族的衝擊與指標"],
-            ["102-4", "溫室氣體減量目標與進展", "短中長期範疇 1、2、3 總量目標；範疇 2 須說明地點基礎或市場基礎"],
-            ["102-5", "範疇 1 溫室氣體排放", "京都議定書氣體、IPCC 最新 100 年 GWP；生質 CO2 分開報導"],
-            ["102-6", "範疇 2 溫室氣體排放", "地點基礎必報，市場基礎如適用亦報"],
-            ["102-7", "範疇 3 溫室氣體排放", "依 15 個類別細分"],
-            ["102-8", "溫室氣體排放密集度", "分子為總排放量，分母為組織特定指標"],
-            ["102-9", "價值鏈中的溫室氣體移除", "依儲存庫細分、非永久性風險管理"],
-            ["102-10", "碳權", "註銷量、專案資訊、8 項品質準則（外加性、可信基線、永久性、避免洩漏等）"]
+            [
+              "102-1",
+              "氣候變遷減緩的轉型計畫",
+              "對齊 1.5°C 最新科學、計畫支出、治理、公正轉型、遊說一致性；沒有計畫須說明原因與時程"
+            ],
+            [
+              "102-2",
+              "氣候變遷調適計畫",
+              "調適計畫及其對人與環境的衝擊"
+            ],
+            [
+              "102-3",
+              "公正轉型",
+              "轉型對工作者、社區、原住民族的衝擊與指標"
+            ],
+            [
+              "102-4",
+              "溫室氣體減量目標與進展",
+              "短中長期範疇 1、2、3 總量目標；範疇 2 須說明地點基礎或市場基礎"
+            ],
+            [
+              "102-5",
+              "範疇 1 溫室氣體排放",
+              "京都議定書氣體、IPCC 最新 100 年 GWP；生質 CO2 分開報導"
+            ],
+            [
+              "102-6",
+              "範疇 2 溫室氣體排放",
+              "地點基礎必報，市場基礎如適用亦報"
+            ],
+            [
+              "102-7",
+              "範疇 3 溫室氣體排放",
+              "依 15 個類別細分"
+            ],
+            [
+              "102-8",
+              "溫室氣體排放密集度",
+              "分子為總排放量，分母為組織特定指標"
+            ],
+            [
+              "102-9",
+              "價值鏈中的溫室氣體移除",
+              "依儲存庫細分、非永久性風險管理"
+            ],
+            [
+              "102-10",
+              "碳權",
+              "註銷量、專案資訊、8 項品質準則（外加性、可信基線、永久性、避免洩漏等）"
+            ]
           ],
           "alignment": "GRI 認可：依 GHG Protocol 衡量的 IFRS S2 範疇 1、2、3 揭露，可用來滿足 GRI 102 對應要求",
-          "sources": ["gri-102", "gri-102-ifrs-statement", "gri-sector-alignment"]
+          "sources": [
+            "gri-102",
+            "gri-102-ifrs-statement",
+            "gri-sector-alignment"
+          ]
         },
         {
-          "code": "GRI 103", "zh": "能源 2025", "zhUnofficial": true, "en": "Energy 2025",
-          "effective": "2027-01-01 起出版的報告適用，可提前採用", "status": "已發布，尚未強制",
+          "code": "GRI 103",
+          "zh": "能源 2025",
+          "zhUnofficial": true,
+          "en": "Energy 2025",
+          "effective": "2027-01-01 起出版的報告適用，可提前採用",
+          "status": "已發布，尚未強制",
           "replaces": "GRI 302：能源 2016",
           "structure": "第 1 節主題管理揭露 1 項（103-1）＋第 2 節主題揭露 4 項（103-2 至 103-5）",
           "disclosures": [
-            ["103-1", "能源政策與承諾", "降低耗能、提高能效、轉向再生能源"],
-            ["103-2", "組織內部的能源消耗與自發電", "依再生／非再生細分；自發自用與售出；是否使用合約工具"],
-            ["103-3", "上下游能源消耗", "價值鏈中顯著的能源消耗"],
-            ["103-4", "能源密集度", "分子能耗、分母組織特定指標"],
-            ["103-5", "能源消耗的減少", "減量來自節能措施或其他因素、基準年"]
+            [
+              "103-1",
+              "能源政策與承諾",
+              "降低耗能、提高能效、轉向再生能源"
+            ],
+            [
+              "103-2",
+              "組織內部的能源消耗與自發電",
+              "依再生／非再生細分；自發自用與售出；是否使用合約工具"
+            ],
+            [
+              "103-3",
+              "上下游能源消耗",
+              "價值鏈中顯著的能源消耗"
+            ],
+            [
+              "103-4",
+              "能源密集度",
+              "分子能耗、分母組織特定指標"
+            ],
+            [
+              "103-5",
+              "能源消耗的減少",
+              "減量來自節能措施或其他因素、基準年"
+            ]
           ],
-          "sources": ["gri-103"]
+          "sources": [
+            "gri-103"
+          ]
         }
       ],
       "mnemonic": "生・氣・能 → 101・102・103（舊 304・305・302）",
-      "traps": ["GRI 102 不是 GRI 2！GRI 2 是一般揭露", "GRI 102 只取代 305-1 至 305-5，不是整份 305", "GRI 101 的生效日已到（2026），102／103 要到 2027"]
+      "traps": [
+        "GRI 102 不是 GRI 2！GRI 2 是一般揭露",
+        "GRI 102 只取代 305-1 至 305-5，不是整份 305",
+        "GRI 101 的生效日已到（2026），102／103 要到 2027"
+      ]
     },
     {
       "id": "gri-200",
@@ -149,16 +486,170 @@
       "zh": "經濟",
       "oneLiner": "經市見菜，貪竟稅。",
       "standards": [
-        ["201", "經濟績效 2016", "201-2 氣候變遷財務影響於 2027 起由 GRI 102 取代"],
-        ["202", "市場地位 2016", "勞工專案修訂中"],
-        ["203", "間接經濟衝擊 2016", ""],
-        ["204", "採購實務 2016", ""],
-        ["205", "反貪腐 2016", ""],
-        ["206", "反競爭行為 2016", ""],
-        ["207", "稅務 2019", "唯一的 2019 年版"]
+        [
+          "201",
+          "經濟績效 2016",
+          "201-2 氣候變遷財務影響於 2027 起由 GRI 102 取代"
+        ],
+        [
+          "202",
+          "市場地位 2016",
+          "勞工專案修訂中"
+        ],
+        [
+          "203",
+          "間接經濟衝擊 2016",
+          ""
+        ],
+        [
+          "204",
+          "採購實務 2016",
+          ""
+        ],
+        [
+          "205",
+          "反貪腐 2016",
+          ""
+        ],
+        [
+          "206",
+          "反競爭行為 2016",
+          ""
+        ],
+        [
+          "207",
+          "稅務 2019",
+          "唯一的 2019 年版"
+        ]
       ],
       "mnemonic": "經（201 經濟績效）市（202 市場地位）見（203 間接經濟衝擊）菜（204 採購）、貪（205 反貪腐）竟（206 反競爭）稅（207 稅務）",
-      "sources": ["gri-zh-tw"]
+      "sources": [
+        "gri-zh-tw",
+        "gri-topic-en"
+      ],
+      "details": {
+        "201": {
+          "en": "Economic Performance 2016",
+          "disclosures": [
+            [
+              "201-1",
+              "組織所產生及分配的直接經濟價值",
+              "Direct economic value generated and distributed"
+            ],
+            [
+              "201-2",
+              "氣候變遷所產生的財務影響及其他風險與機會",
+              "Financial implications and other risks and opportunities due to climate change"
+            ],
+            [
+              "201-3",
+              "定義福利計畫義務與其他退休計畫",
+              "Defined benefit plan obligations and other retirement plans"
+            ],
+            [
+              "201-4",
+              "取自政府之財務補助",
+              "Financial assistance received from government"
+            ]
+          ]
+        },
+        "202": {
+          "en": "Market Presence 2016",
+          "disclosures": [
+            [
+              "202-1",
+              "不同性別的基層人員標準薪資與當地最低薪資的比率",
+              "Ratios of standard entry level wage by gender compared to local minimum wage"
+            ],
+            [
+              "202-2",
+              "雇用當地居民為高階管理階層的比例",
+              "Proportion of senior management hired from the local community"
+            ]
+          ]
+        },
+        "203": {
+          "en": "Indirect Economic Impacts 2016",
+          "disclosures": [
+            [
+              "203-1",
+              "基礎設施的投資與支援服務",
+              "Infrastructure investments and services supported"
+            ],
+            [
+              "203-2",
+              "顯著的間接經濟衝擊",
+              "Significant indirect economic impacts"
+            ]
+          ]
+        },
+        "204": {
+          "en": "Procurement Practices 2016",
+          "disclosures": [
+            [
+              "204-1",
+              "來自當地供應商的採購支出比例",
+              "Proportion of spending on local suppliers"
+            ]
+          ]
+        },
+        "205": {
+          "en": "Anti-corruption 2016",
+          "disclosures": [
+            [
+              "205-1",
+              "已進行貪腐風險評估的營運據點",
+              "Operations assessed for risks related to corruption"
+            ],
+            [
+              "205-2",
+              "有關反貪腐政策和程序的溝通及訓練",
+              "Communication and training about anti-corruption policies and procedures"
+            ],
+            [
+              "205-3",
+              "已確認的貪腐事件及採取的行動",
+              "Confirmed incidents of corruption and actions taken"
+            ]
+          ]
+        },
+        "206": {
+          "en": "Anti-competitive Behavior 2016",
+          "disclosures": [
+            [
+              "206-1",
+              "反競爭行為、反托拉斯和壟斷行為的法律行動",
+              "Legal actions for anti-competitive behavior, anti-trust, and monopoly practices"
+            ]
+          ]
+        },
+        "207": {
+          "en": "Tax 2019",
+          "disclosures": [
+            [
+              "207-1",
+              "稅務方針",
+              "Approach to tax"
+            ],
+            [
+              "207-2",
+              "稅務治理、管控與風險管理",
+              "Tax governance, control, and risk management"
+            ],
+            [
+              "207-3",
+              "與稅務相關議題之利害關係人溝通與管理",
+              "Stakeholder engagement and management of concerns related to tax"
+            ],
+            [
+              "207-4",
+              "國別報告",
+              "Country-by-country reporting"
+            ]
+          ]
+        }
+      },
+      "detailsNote": "揭露項目中文為暫譯，英文為 GRI 原文標題；考試以教材用語為準。"
     },
     {
       "id": "gri-300",
@@ -168,17 +659,246 @@
       "zh": "環境",
       "oneLiner": "物能水生，排廢供 —— 但 302、304、305 正在被 1xx 接手。",
       "standards": [
-        ["301", "物料 2016", "未來將配合地球限度概念修訂"],
-        ["302", "能源 2016", "2027 起由 GRI 103 取代"],
-        ["303", "水與放流水 2018", ""],
-        ["304", "生物多樣性 2016", "已於 2026-01-01 廢止，由 GRI 101 取代"],
-        ["305", "排放 2016", "305-1 至 305-5 於 2027 起由 GRI 102 取代"],
-        ["306", "廢棄物 2020", ""],
-        ["308", "供應商環境評估 2016", ""]
+        [
+          "301",
+          "物料 2016",
+          "未來將配合地球限度概念修訂"
+        ],
+        [
+          "302",
+          "能源 2016",
+          "2027 起由 GRI 103 取代"
+        ],
+        [
+          "303",
+          "水與放流水 2018",
+          ""
+        ],
+        [
+          "304",
+          "生物多樣性 2016",
+          "已於 2026-01-01 廢止，由 GRI 101 取代"
+        ],
+        [
+          "305",
+          "排放 2016",
+          "305-1 至 305-5 於 2027 起由 GRI 102 取代"
+        ],
+        [
+          "306",
+          "廢棄物 2020",
+          ""
+        ],
+        [
+          "308",
+          "供應商環境評估 2016",
+          ""
+        ]
       ],
       "mnemonic": "物（301）能（302）水（303）生（304）排（305）廢（306）供（308）—— 沒有 307",
-      "traps": ["307 環境法規遵循已併入 GRI 2-27"],
-      "sources": ["gri-zh-tw", "gri-101", "gri-102", "gri-103"]
+      "traps": [
+        "307 環境法規遵循已併入 GRI 2-27"
+      ],
+      "sources": [
+        "gri-zh-tw",
+        "gri-101",
+        "gri-102",
+        "gri-103",
+        "gri-topic-en"
+      ],
+      "details": {
+        "301": {
+          "en": "Materials 2016",
+          "disclosures": [
+            [
+              "301-1",
+              "所用物料的重量或體積",
+              "Materials used by weight or volume"
+            ],
+            [
+              "301-2",
+              "使用的回收再利用物料",
+              "Recycled input materials used"
+            ],
+            [
+              "301-3",
+              "回收產品及其包材",
+              "Reclaimed products and their packaging materials"
+            ]
+          ]
+        },
+        "302": {
+          "en": "Energy 2016",
+          "disclosures": [
+            [
+              "302-1",
+              "組織內部的能源消耗量",
+              "Energy consumption within the organization"
+            ],
+            [
+              "302-2",
+              "組織外部的能源消耗量",
+              "Energy consumption outside of the organization"
+            ],
+            [
+              "302-3",
+              "能源密集度",
+              "Energy intensity"
+            ],
+            [
+              "302-4",
+              "減少能源消耗",
+              "Reduction of energy consumption"
+            ],
+            [
+              "302-5",
+              "降低產品和服務的能源需求",
+              "Reductions in energy requirements of products and services"
+            ]
+          ]
+        },
+        "303": {
+          "en": "Water and Effluents 2018",
+          "disclosures": [
+            [
+              "303-1",
+              "共享水資源之相互影響",
+              "Interactions with water as a shared resource"
+            ],
+            [
+              "303-2",
+              "與排水相關衝擊的管理",
+              "Management of water discharge-related impacts"
+            ],
+            [
+              "303-3",
+              "取水量",
+              "Water withdrawal"
+            ],
+            [
+              "303-4",
+              "排水量",
+              "Water discharge"
+            ],
+            [
+              "303-5",
+              "耗水量",
+              "Water consumption"
+            ]
+          ]
+        },
+        "304": {
+          "en": "Biodiversity 2016",
+          "disclosures": [
+            [
+              "304-1",
+              "組織所擁有、租賃、管理的營運據點或其鄰近地區位於環境保護區或其他具高生物多樣性價值的地區",
+              "Operational sites owned, leased, managed in, or adjacent to, protected areas and areas of high biodiversity value outside protected areas"
+            ],
+            [
+              "304-2",
+              "活動、產品和服務對生物多樣性的顯著衝擊",
+              "Significant impacts of activities, products and services on biodiversity"
+            ],
+            [
+              "304-3",
+              "受保護或復育的棲息地",
+              "Habitats protected or restored"
+            ],
+            [
+              "304-4",
+              "受營運影響的棲息地中，已被列入 IUCN 紅色名錄及國家保育名錄的物種",
+              "IUCN Red List species and national conservation list species with habitats in areas affected by operations"
+            ]
+          ]
+        },
+        "305": {
+          "en": "Emissions 2016",
+          "disclosures": [
+            [
+              "305-1",
+              "直接（範疇一）溫室氣體排放",
+              "Direct (Scope 1) GHG emissions"
+            ],
+            [
+              "305-2",
+              "能源間接（範疇二）溫室氣體排放",
+              "Energy indirect (Scope 2) GHG emissions"
+            ],
+            [
+              "305-3",
+              "其他間接（範疇三）溫室氣體排放",
+              "Other indirect (Scope 3) GHG emissions"
+            ],
+            [
+              "305-4",
+              "溫室氣體排放密集度",
+              "GHG emissions intensity"
+            ],
+            [
+              "305-5",
+              "溫室氣體排放減量",
+              "Reduction of GHG emissions"
+            ],
+            [
+              "305-6",
+              "臭氧層破壞物質（ODS）的排放",
+              "Emissions of ozone-depleting substances (ODS)"
+            ],
+            [
+              "305-7",
+              "氮氧化物（NOx）、硫氧化物（SOx）及其他重大的氣體排放",
+              "Nitrogen oxides (NOx), sulfur oxides (SOx), and other significant air emissions"
+            ]
+          ]
+        },
+        "306": {
+          "en": "Waste 2020",
+          "disclosures": [
+            [
+              "306-1",
+              "廢棄物的產生與廢棄物相關顯著衝擊",
+              "Waste generation and significant waste-related impacts"
+            ],
+            [
+              "306-2",
+              "廢棄物相關顯著衝擊之管理",
+              "Management of significant waste-related impacts"
+            ],
+            [
+              "306-3",
+              "產生之廢棄物",
+              "Waste generated"
+            ],
+            [
+              "306-4",
+              "回收再利用的廢棄物",
+              "Waste diverted from disposal"
+            ],
+            [
+              "306-5",
+              "最終處置的廢棄物",
+              "Waste directed to disposal"
+            ]
+          ]
+        },
+        "308": {
+          "en": "Supplier Environmental Assessment 2016",
+          "disclosures": [
+            [
+              "308-1",
+              "採用環境標準篩選新供應商",
+              "New suppliers that were screened using environmental criteria"
+            ],
+            [
+              "308-2",
+              "供應鏈中負面的環境衝擊以及所採取的行動",
+              "Negative environmental impacts in the supply chain and actions taken"
+            ]
+          ]
+        }
+      },
+      "detailsNote": "揭露項目中文為暫譯，英文為 GRI 原文標題；考試以教材用語為準。"
     },
     {
       "id": "gri-400",
@@ -188,29 +908,397 @@
       "zh": "社會",
       "oneLiner": "401–409 是勞工，410 之後是社區、供應鏈、顧客。",
       "standards": [
-        ["401", "僱傭 2016", "勞工專案修訂中"],
-        ["402", "勞雇關係 2016", "GSSB 已核准未來廢止，由新準則 GRI 106 接手，日期未定"],
-        ["403", "職業安全衛生 2018", "不在勞工專案修訂範圍"],
-        ["404", "訓練與教育 2016", "勞工專案修訂中"],
-        ["405", "員工多元化與平等機會 2016", "勞工專案修訂中"],
-        ["406", "不歧視 2016", "勞工專案修訂中"],
-        ["407", "結社自由與團體協商 2016", "勞工專案修訂中"],
-        ["408", "童工 2016", ""],
-        ["409", "強迫或強制勞動 2016", ""],
-        ["410", "保全實務 2016", ""],
-        ["411", "原住民權利 2016", ""],
-        ["412", "人權評估 2016", "人權盡職調查已納入通用準則；狀態請以教材為準"],
-        ["413", "當地社區 2016", ""],
-        ["414", "供應商社會評估 2016", ""],
-        ["415", "公共政策 2016", ""],
-        ["416", "顧客健康與安全 2016", ""],
-        ["417", "行銷與標示 2016", ""],
-        ["418", "客戶隱私 2016", ""]
+        [
+          "401",
+          "僱傭 2016",
+          "勞工專案修訂中"
+        ],
+        [
+          "402",
+          "勞雇關係 2016",
+          "GSSB 已核准未來廢止，由新準則 GRI 106 接手，日期未定"
+        ],
+        [
+          "403",
+          "職業安全衛生 2018",
+          "不在勞工專案修訂範圍"
+        ],
+        [
+          "404",
+          "訓練與教育 2016",
+          "勞工專案修訂中"
+        ],
+        [
+          "405",
+          "員工多元化與平等機會 2016",
+          "勞工專案修訂中"
+        ],
+        [
+          "406",
+          "不歧視 2016",
+          "勞工專案修訂中"
+        ],
+        [
+          "407",
+          "結社自由與團體協商 2016",
+          "勞工專案修訂中"
+        ],
+        [
+          "408",
+          "童工 2016",
+          ""
+        ],
+        [
+          "409",
+          "強迫或強制勞動 2016",
+          ""
+        ],
+        [
+          "410",
+          "保全實務 2016",
+          ""
+        ],
+        [
+          "411",
+          "原住民權利 2016",
+          ""
+        ],
+        [
+          "412",
+          "人權評估 2016",
+          "人權盡職調查已納入通用準則；狀態請以教材為準"
+        ],
+        [
+          "413",
+          "當地社區 2016",
+          ""
+        ],
+        [
+          "414",
+          "供應商社會評估 2016",
+          ""
+        ],
+        [
+          "415",
+          "公共政策 2016",
+          ""
+        ],
+        [
+          "416",
+          "顧客健康與安全 2016",
+          ""
+        ],
+        [
+          "417",
+          "行銷與標示 2016",
+          ""
+        ],
+        [
+          "418",
+          "客戶隱私 2016",
+          ""
+        ]
       ],
       "mnemonic": "勞工九樓 401–409：僱、勞、安、訓、多、歧、結、童、強（僱傭→勞雇→職安→訓練→多元→不歧視→結社→童工→強迫勞動）",
-      "traps": ["419 社會經濟法規遵循已併入 GRI 2-27", "403 是 2018 年版，不是 2016"],
+      "traps": [
+        "419 社會經濟法規遵循已併入 GRI 2-27",
+        "403 是 2018 年版，不是 2016"
+      ],
       "upcoming": "勞工新準則：GRI 106 工作者的重大變動、GRI 107 在職父母與照顧者，2026 年 6 月 GSSB 已核准定稿，生效日未定",
-      "sources": ["gri-zh-tw", "gri-labor-project", "gri-gssb-june-2026"]
+      "sources": [
+        "gri-zh-tw",
+        "gri-labor-project",
+        "gri-gssb-june-2026",
+        "gri-topic-en"
+      ],
+      "details": {
+        "401": {
+          "en": "Employment 2016",
+          "disclosures": [
+            [
+              "401-1",
+              "新進員工和離職員工",
+              "New employee hires and employee turnover"
+            ],
+            [
+              "401-2",
+              "提供給全職員工（不包含臨時或兼職員工）的福利",
+              "Benefits provided to full-time employees that are not provided to temporary or part-time employees"
+            ],
+            [
+              "401-3",
+              "育嬰假",
+              "Parental leave"
+            ]
+          ]
+        },
+        "402": {
+          "en": "Labor/Management Relations 2016",
+          "disclosures": [
+            [
+              "402-1",
+              "關於營運變化的最短預告期",
+              "Minimum notice periods regarding operational changes"
+            ]
+          ]
+        },
+        "403": {
+          "en": "Occupational Health and Safety 2018",
+          "disclosures": [
+            [
+              "403-1",
+              "職業安全衛生管理系統",
+              "Occupational health and safety management system"
+            ],
+            [
+              "403-2",
+              "危害辨識、風險評估及事故調查",
+              "Hazard identification, risk assessment, and incident investigation"
+            ],
+            [
+              "403-3",
+              "職業健康服務",
+              "Occupational health services"
+            ],
+            [
+              "403-4",
+              "有關職業安全衛生之工作者參與、諮商與溝通",
+              "Worker participation, consultation, and communication on occupational health and safety"
+            ],
+            [
+              "403-5",
+              "有關職業安全衛生之工作者訓練",
+              "Worker training on occupational health and safety"
+            ],
+            [
+              "403-6",
+              "工作者健康促進",
+              "Promotion of worker health"
+            ],
+            [
+              "403-7",
+              "預防和減緩與業務關係直接相關聯之職業安全衛生的衝擊",
+              "Prevention and mitigation of occupational health and safety impacts directly linked by business relationships"
+            ],
+            [
+              "403-8",
+              "職業安全衛生管理系統所涵蓋之工作者",
+              "Workers covered by an occupational health and safety management system"
+            ],
+            [
+              "403-9",
+              "職業傷害",
+              "Work-related injuries"
+            ],
+            [
+              "403-10",
+              "職業病",
+              "Work-related ill health"
+            ]
+          ]
+        },
+        "404": {
+          "en": "Training and Education 2016",
+          "disclosures": [
+            [
+              "404-1",
+              "每名員工每年接受訓練的平均時數",
+              "Average hours of training per year per employee"
+            ],
+            [
+              "404-2",
+              "提升員工職能及過渡協助方案",
+              "Programs for upgrading employee skills and transition assistance programs"
+            ],
+            [
+              "404-3",
+              "定期接受績效及職業發展檢核的員工百分比",
+              "Percentage of employees receiving regular performance and career development reviews"
+            ]
+          ]
+        },
+        "405": {
+          "en": "Diversity and Equal Opportunity 2016",
+          "disclosures": [
+            [
+              "405-1",
+              "治理單位與員工的多元化",
+              "Diversity of governance bodies and employees"
+            ],
+            [
+              "405-2",
+              "女性對男性基本薪資與薪酬的比率",
+              "Ratio of basic salary and remuneration of women to men"
+            ]
+          ]
+        },
+        "406": {
+          "en": "Non-discrimination 2016",
+          "disclosures": [
+            [
+              "406-1",
+              "歧視事件以及組織採取的改善行動",
+              "Incidents of discrimination and corrective actions taken"
+            ]
+          ]
+        },
+        "407": {
+          "en": "Freedom of Association and Collective Bargaining 2016",
+          "disclosures": [
+            [
+              "407-1",
+              "可能面臨結社自由及團體協商風險的營運據點或供應商",
+              "Operations and suppliers in which the right to freedom of association and collective bargaining may be at risk"
+            ]
+          ]
+        },
+        "408": {
+          "en": "Child Labor 2016",
+          "disclosures": [
+            [
+              "408-1",
+              "營運據點和供應商存在重大童工事件的風險",
+              "Operations and suppliers at significant risk for incidents of child labor"
+            ]
+          ]
+        },
+        "409": {
+          "en": "Forced or Compulsory Labor 2016",
+          "disclosures": [
+            [
+              "409-1",
+              "營運據點和供應商存在重大強迫或強制勞動事件的風險",
+              "Operations and suppliers at significant risk for incidents of forced or compulsory labor"
+            ]
+          ]
+        },
+        "410": {
+          "en": "Security Practices 2016",
+          "disclosures": [
+            [
+              "410-1",
+              "保全人員接受人權政策或程序的訓練",
+              "Security personnel trained in human rights policies or procedures"
+            ]
+          ]
+        },
+        "411": {
+          "en": "Rights of Indigenous Peoples 2016",
+          "disclosures": [
+            [
+              "411-1",
+              "涉及侵害原住民權利的事件",
+              "Incidents of violations involving rights of indigenous peoples"
+            ]
+          ]
+        },
+        "412": {
+          "en": "Human Rights Assessment 2016",
+          "disclosures": [
+            [
+              "412-1",
+              "接受人權檢核或衝擊評估的營運活動",
+              "Operations that have been subject to human rights reviews or impact assessments"
+            ],
+            [
+              "412-2",
+              "人權政策或程序的員工訓練",
+              "Employee training on human rights policies or procedures"
+            ],
+            [
+              "412-3",
+              "含人權條款或已進行人權審查的重大投資協議及合約",
+              "Significant investment agreements and contracts that include human rights clauses or that underwent human rights screening"
+            ]
+          ]
+        },
+        "413": {
+          "en": "Local Communities 2016",
+          "disclosures": [
+            [
+              "413-1",
+              "經當地社區溝通、衝擊評估和發展計畫的營運活動",
+              "Operations with local community engagement, impact assessments, and development programs"
+            ],
+            [
+              "413-2",
+              "對當地社區具有顯著實際或潛在負面衝擊的營運活動",
+              "Operations with significant actual and potential negative impacts on local communities"
+            ]
+          ]
+        },
+        "414": {
+          "en": "Supplier Social Assessment 2016",
+          "disclosures": [
+            [
+              "414-1",
+              "使用社會標準篩選之新供應商",
+              "New suppliers that were screened using social criteria"
+            ],
+            [
+              "414-2",
+              "供應鏈中負面的社會衝擊以及所採取的行動",
+              "Negative social impacts in the supply chain and actions taken"
+            ]
+          ]
+        },
+        "415": {
+          "en": "Public Policy 2016",
+          "disclosures": [
+            [
+              "415-1",
+              "政治捐獻",
+              "Political contributions"
+            ]
+          ]
+        },
+        "416": {
+          "en": "Customer Health and Safety 2016",
+          "disclosures": [
+            [
+              "416-1",
+              "評估產品和服務類別對健康和安全的衝擊",
+              "Assessment of the health and safety impacts of product and service categories"
+            ],
+            [
+              "416-2",
+              "違反有關產品與服務的健康和安全法規之事件",
+              "Incidents of non-compliance concerning the health and safety impacts of products and services"
+            ]
+          ]
+        },
+        "417": {
+          "en": "Marketing and Labeling 2016",
+          "disclosures": [
+            [
+              "417-1",
+              "產品和服務資訊與標示的要求",
+              "Requirements for product and service information and labeling"
+            ],
+            [
+              "417-2",
+              "未遵循產品與服務之資訊與標示相關法規的事件",
+              "Incidents of non-compliance concerning product and service information and labeling"
+            ],
+            [
+              "417-3",
+              "未遵循行銷傳播相關法規的事件",
+              "Incidents of non-compliance concerning marketing communications"
+            ]
+          ]
+        },
+        "418": {
+          "en": "Customer Privacy 2016",
+          "disclosures": [
+            [
+              "418-1",
+              "經證實侵犯客戶隱私或遺失客戶資料的投訴",
+              "Substantiated complaints concerning breaches of customer privacy and losses of customer data"
+            ]
+          ]
+        }
+      },
+      "detailsNote": "揭露項目中文為暫譯，英文為 GRI 原文標題；考試以教材用語為準。"
     },
     {
       "id": "gri-sector",
@@ -220,16 +1308,43 @@
       "zh": "行業準則",
       "oneLiner": "特定行業「很可能是重大主題」的清單。",
       "standards": [
-        ["GRI 11", "石油與天然氣業 2021"],
-        ["GRI 12", "煤炭業 2022"],
-        ["GRI 13", "農業、水產養殖業與漁業 2022"],
-        ["GRI 14", "採礦業 2024"]
+        [
+          "GRI 11",
+          "石油與天然氣業 2021"
+        ],
+        [
+          "GRI 12",
+          "煤炭業 2022"
+        ],
+        [
+          "GRI 13",
+          "農業、水產養殖業與漁業 2022"
+        ],
+        [
+          "GRI 14",
+          "採礦業 2024"
+        ]
       ],
       "keyPoints": [
-        { "title": "怎麼用", "items": ["組織應使用適用的行業準則來決定重大主題", "行業準則已配合 GRI 101、102、103 更新對應揭露"] },
-        { "title": "發展中", "items": ["紡織與成衣（GRI 15，草案階段）", "金融服務：銀行、保險、資本市場"] }
+        {
+          "title": "怎麼用",
+          "items": [
+            "組織應使用適用的行業準則來決定重大主題",
+            "行業準則已配合 GRI 101、102、103 更新對應揭露"
+          ]
+        },
+        {
+          "title": "發展中",
+          "items": [
+            "紡織與成衣（GRI 15，草案階段）",
+            "金融服務：銀行、保險、資本市場"
+          ]
+        }
       ],
-      "sources": ["gri-sector-alignment", "gri-sector-program"]
+      "sources": [
+        "gri-sector-alignment",
+        "gri-sector-program"
+      ]
     }
   ]
 }

@@ -31,6 +31,15 @@ for (const f of standards.floors) {
   floorIds.add(f.id);
   (f.sources || []).forEach((s) => checkSource(`floor ${f.id}`, s));
   (f.standards || []).forEach((s) => (s.sources || []).forEach((x) => checkSource(`floor ${f.id} ${s.code}`, x)));
+  if (f.details) {
+    const codes = new Set((f.standards || []).filter(Array.isArray).map((s) => s[0]));
+    for (const [code, d] of Object.entries(f.details)) {
+      if (!codes.has(code)) errors.push(`floor ${f.id}: details for unknown standard ${code}`);
+      if (!d.disclosures?.length) errors.push(`floor ${f.id}: details ${code} has no disclosures`);
+      for (const x of d.disclosures || []) if (!String(x[0]).startsWith(code + "-")) errors.push(`floor ${f.id}: ${x[0]} not under ${code}`);
+    }
+    for (const c of codes) if (!f.details[c]) errors.push(`floor ${f.id}: no details for ${c}`);
+  }
 }
 
 // quiz

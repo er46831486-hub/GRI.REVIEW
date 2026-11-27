@@ -1,7 +1,7 @@
 import "./styles/tokens.css";
 import "./styles/app.css";
 import { renderHome } from "./views/home.js";
-import { renderBuilding } from "./views/building.js";
+import { renderGri } from "./views/gri.js";
 import { renderCompare } from "./views/compare.js";
 import { renderCards } from "./views/cards.js";
 import { renderQuiz } from "./views/quiz.js";
@@ -10,7 +10,8 @@ import { renderReview } from "./views/review.js";
 
 const routes = {
   "": renderHome,
-  building: renderBuilding,
+  gri: renderGri,
+  building: renderGri, // 舊網址相容
   compare: renderCompare,
   cards: renderCards,
   quiz: renderQuiz,
@@ -24,7 +25,7 @@ let cleanup = null;
 function go() {
   const raw = location.hash.replace(/^#\/?/, "");
   const [path, query = ""] = raw.split("?");
-  const mod = routes[path] ? path : "";
+  const mod = routes[path] ? (path === "building" ? "gri" : path) : "";
   if (typeof cleanup === "function") cleanup();
   cleanup = null;
   main.innerHTML = "";

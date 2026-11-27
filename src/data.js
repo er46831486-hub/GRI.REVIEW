@@ -43,6 +43,8 @@ function codeCards() {
       if (Array.isArray(s)) {
         const code = /^GRI/.test(s[0]) ? s[0] : `GRI ${s[0]}`;
         add(f.id, code, s[1], src);
+        const det = f.details?.[s[0]];
+        (det?.disclosures || []).forEach(([c, n]) => add(f.id, `GRI ${c}`, n, "gri-topic-en", true));
       } else {
         const ssrc = (s.sources || [])[0] || src;
         add(f.id, s.code, s.zh, ssrc, !!s.zhUnofficial);

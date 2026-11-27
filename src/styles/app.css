@@ -1,8 +1,8 @@
 /* Hallmark · shape: app screen · genre: modern-minimal · theme: custom (user named the palette and face, by request)
  * paper: #FFFFFF · accent: #C2410C on #FFEDD5 bars · display: Noto Sans TC 900 · body: Noto Sans TC 400
- * nav: sticky module bar, current module filled orange · footer: none (study tool) · hero: settled · signature: the GRI building, floors as tappable bars
+ * nav: sticky module bar, current module filled orange · footer: none (study tool) · hero: settled · signature: the GRI outline, 1 down to 418 as tappable bars
  * states: default hover active focus-visible pressed disabled correct wrong · axes: light/grotesk-heavy/warm · posture: restrained · contrast: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, the building is bars not a picture; kept it, the floors are the content */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, the outline is bars not a picture; kept it, the disclosures are the content */
 
 html, body { overflow-x: clip; }
 *, *::before, *::after { box-sizing: border-box; }
@@ -140,7 +140,7 @@ main:focus { outline: none; }
 .traps { margin-top: var(--sp-4); padding: var(--sp-2) var(--sp-4) var(--sp-3); border: 1px solid var(--c-wrong); background: var(--c-wrong-bg); border-radius: var(--radius); }
 .traps .h-sub { color: var(--c-wrong); margin-top: var(--sp-2); }
 
-/* 大樓 */
+/* GRI 條文列 */
 .mod-head .toggle {
   min-height: var(--tap); padding: 0 var(--sp-4); border-radius: var(--radius-pill); border: 1px solid var(--c-primary);
   background: var(--c-bg); color: var(--c-primary); font-weight: 500; font-size: var(--fs-label); cursor: pointer;
@@ -363,7 +363,24 @@ main:focus { outline: none; }
   .face { padding: var(--sp-5); }
 }
 @media (max-width: 40rem) { .rate .btn { white-space: nowrap; font-size: 0.9375rem; gap: var(--sp-1); } .tags dt { white-space: nowrap; } }
-.cd-hint { font-weight: 500; color: var(--c-ink-soft); }
-.cd-set { display: flex; align-items: center; gap: var(--sp-3); margin-top: var(--sp-4); font-size: var(--fs-label); font-weight: 500; color: var(--c-primary-strong); }
-.cd-set input { min-height: var(--tap); padding: 0 var(--sp-3); border: 1px solid var(--c-accent-line); border-radius: var(--radius); background: var(--c-bg); color: var(--c-ink); font: inherit; font-size: 1rem; }
-.cd-set input:hover { border-color: var(--c-primary); }
+
+/* GRI 條文：由 1 到 418 的單一清單 */
+.gri-tools { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-3); }
+.gri-index { position: sticky; top: 60px; z-index: calc(var(--z-top) - 1); background: var(--c-bg); margin-bottom: var(--sp-2); }
+.gri-index .pill { text-decoration: none; color: var(--c-ink); }
+.grp { padding-top: var(--sp-6); margin-top: var(--sp-5); border-top: 2px solid var(--c-accent-line); scroll-margin-top: 140px; }
+.grp:first-child { margin-top: 0; }
+.grp:focus { outline: none; }
+.grp-head { margin-bottom: var(--sp-3); }
+.grp-kind { font-size: var(--fs-label); font-weight: 500; color: var(--c-primary-strong); }
+.grp-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-1) var(--sp-3); font-size: var(--fs-title); font-weight: 700; }
+.grp-code { font-size: clamp(2rem, 1.6rem + 1.8vw, 3rem); font-weight: 900; color: var(--c-primary); line-height: 1.1; }
+.grp-head .lede { margin-top: var(--sp-1); }
+.drow-en { display: block; font-size: 0.8125rem; color: var(--c-ink-soft); line-height: 1.5; }
+.std-note { margin: var(--sp-2) 0 var(--sp-1); font-size: 0.9375rem; font-weight: 500; color: var(--c-primary-strong); }
+.bar-flat { border-color: var(--c-line); }
+.bar-static { cursor: default; }
+.bar-static:hover { background: transparent; }
+.block-sm { margin-top: var(--sp-4); }
+.masked .nm:not(.shown) + .note + .drow-en, .masked .nm:not(.shown) ~ .drow-en { visibility: hidden; }
+@media (max-width: 40rem) { .gri-index { top: 60px; } .drow-btn { grid-template-columns: 5.5ch minmax(0, 1fr) auto; } .drow-desc { padding-left: var(--sp-2); } }
