@@ -1,0 +1,38 @@
+/* 色彩與字體 token：使用者指定白底、橘主色、淡橘輔色、思源黑體 */
+:root {
+  --c-bg: #FFFFFF;
+  --c-ink: #1F1A17;
+  --c-ink-soft: #5C534D;
+  --c-primary: #C2410C;
+  --c-primary-strong: #9A3412;
+  --c-on-primary: #FFFFFF;
+  --c-accent: #FFEDD5;
+  --c-accent-soft: #FFF7ED;
+  --c-accent-line: #FDBA74;
+  --c-line: #EDE4DC;
+  --c-correct: #15803D;
+  --c-correct-bg: #ECFDF3;
+  --c-wrong: #B91C1C;
+  --c-wrong-bg: #FEF2F2;
+  --c-focus: #C2410C;
+
+  --f-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", ui-sans-serif, system-ui, sans-serif;
+
+  --fs-display: clamp(2.5rem, 1.9rem + 2.6vw, 3.5rem);
+  --fs-title: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --fs-sub: clamp(1.125rem, 1.07rem + 0.25vw, 1.25rem);
+  --fs-label: 0.875rem;
+  --fs-body: 1.0625rem;
+
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+  --radius: 10px;
+  --radius-pill: 999px;
+  --container: 1120px;
+  --gutter: 24px;
+  --tap: 44px;
+  --dur: 180ms;
+  --dur-flip: 420ms;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --z-top: 300;
+}
+@media (max-width: 40rem) { :root { --gutter: 16px; } }

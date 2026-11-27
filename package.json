@@ -1,0 +1,15 @@
+{
+  "name": "esg-review",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "validate": "node scripts/validate-content.mjs",
+    "build": "node scripts/validate-content.mjs && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "7.1.12"
+  }
+}

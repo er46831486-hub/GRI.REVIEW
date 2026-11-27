@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "version": "2026-11-27",
+    "note": "除了這裡的概念卡，程式也須從 standards.json 自動產生「編號 ⇄ 名稱」雙向卡（每條揭露與每號準則各兩張：正向與反向）。"
+  },
+  "conceptCards": [
+    { "id": "c01", "topic": "gri-1", "front": "8 大報導原則（口訣）", "back": "正平清比，完永時驗：正確、平衡、清晰、可比、完整、永續性脈絡、時效、可驗證", "source": "gri-universal" },
+    { "id": "c02", "topic": "gri-1", "front": "依循 vs 參考 GRI", "back": "依循：9 項要求全做。參考：發布內容索引＋使用聲明＋通知 GRI", "source": "gri-universal" },
+    { "id": "c03", "topic": "gri-1", "front": "4 種省略原因", "back": "不適用、法律禁止、保密限制、資訊無法取得／不完整", "source": "gri-universal" },
+    { "id": "c04", "topic": "gri-2", "front": "GRI 2 的 5 個區塊與切點", "back": "組織 1–5、活動與工作者 6–8、治理 9–21、策略政策實務 22–28、利害關係人議合 29–30", "source": "gri-zh-tw" },
+    { "id": "c05", "topic": "gri-3", "front": "決定重大主題 4 步驟", "back": "了解組織脈絡 → 鑑別衝擊 → 評估顯著性 → 排序並報導", "source": "gri-universal" },
+    { "id": "c06", "topic": "gri-3", "front": "負面衝擊的嚴重性 3 要素", "back": "規模、範疇、不可補救性", "source": "gri-universal" },
+    { "id": "c07", "topic": "gri-100", "front": "新舊對照：101、102、103", "back": "101 生物多樣性 ← 304；102 氣候變遷 ← 305-1~5＋201-2；103 能源 ← 302", "source": "gri-102" },
+    { "id": "c08", "topic": "gri-100", "front": "新準則生效日", "back": "GRI 101：2026-01-01。GRI 102、103：2027-01-01（可提前採用）", "source": "gri-102" },
+    { "id": "c09", "topic": "gri-100", "front": "減緩層級", "back": "避免 → 減少 → 復育／復原 → 抵換", "source": "gri-101" },
+    { "id": "c10", "topic": "gri-100", "front": "GRI 102 範疇記法", "back": "102-5 範疇 1、102-6 範疇 2、102-7 範疇 3、102-8 密集度", "source": "gri-102" },
+    { "id": "c11", "topic": "gri-300", "front": "300 系列口訣", "back": "物能水生，排廢供：301、302、303、304、305、306、308（沒有 307）", "source": "gri-zh-tw" },
+    { "id": "c12", "topic": "gri-200", "front": "200 系列口訣", "back": "經市見菜，貪竟稅：201–207", "source": "gri-zh-tw" },
+    { "id": "c13", "topic": "gri-400", "front": "勞工九樓 401–409", "back": "僱、勞、安、訓、多、歧、結、童、強", "source": "gri-zh-tw" },
+    { "id": "c14", "topic": "tcfd", "front": "TCFD 四支柱與題數", "back": "治理 2、策略 3、風險管理 3、指標與目標 3，共 11 項", "source": "tcfd-site" },
+    { "id": "c15", "topic": "tcfd", "front": "轉型風險 vs 實體風險", "back": "轉型：政策與法規、技術、市場、商譽。實體：立即性、長期性", "source": "tcfd-site" },
+    { "id": "c16", "topic": "ifrs", "front": "IFRS S1 的重大性", "back": "財務重大性：遺漏、誤述或模糊可合理預期影響主要使用者（投資人、貸款人、其他債權人）決策", "source": "ifrs-s1" },
+    { "id": "c17", "topic": "ifrs", "front": "IFRS S2 首年過渡規定", "back": "可免範疇 3；S1 另允許首年只揭露氣候、晚於財報發布、免比較資訊", "source": "ifrs-s2" },
+    { "id": "c18", "topic": "ifrs", "front": "IFRS S2 2025 修正（4 點）", "back": "類別 15 可限縮為融資排放；可用 GICS 以外分類；部分個體適用轄區豁免；GWP 值轄區豁免。2027 生效", "source": "ifrs-s2-amend" },
+    { "id": "c19", "topic": "taiwan", "front": "台灣接軌 IFRS 三階段", "back": "2026 資本額 100 億以上；2027 50–100 億；2028 其餘上市櫃。直接採用，揭露於年報", "source": "fsc-roadmap" },
+    { "id": "c20", "topic": "compare", "front": "GRI vs IFRS 的重大性", "back": "GRI：衝擊重大性（由內向外）。IFRS：財務重大性（由外向內）。兩者合併稱雙重重大性（ESRS 用語）", "source": "gri-universal" }
+  ]
+}
