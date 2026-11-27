@@ -6,14 +6,23 @@ import { getStats } from "./quiz.js";
 import { getBoxes } from "./cards.js";
 import { getSpot } from "./spot.js";
 
-// 考試日：11 月 29 日（台北時間 00:00）
-const EXAM = Date.parse("2026-11-29T00:00:00+08:00");
+// 期末考：11/29（日）09:10–10:40（台北時間）
+const EXAM_START = Date.parse("2026-11-29T09:10:00+08:00");
+const EXAM_END = Date.parse("2026-11-29T10:40:00+08:00");
 
-function countdown(target) {
-  const ms = target - Date.now();
-  if (ms <= 0) return { d: 0, h: 0, done: true };
-  return { d: Math.floor(ms / 86400000), h: Math.floor((ms % 86400000) / 3600000), done: false };
+function countdown() {
+  const now = Date.now();
+  if (now >= EXAM_END) return { state: "over" };
+  if (now >= EXAM_START) return { state: "during" };
+  const ms = EXAM_START - now;
+  return {
+    state: "before",
+    d: Math.floor(ms / 86400000),
+    h: Math.floor((ms % 86400000) / 3600000),
+    m: Math.floor((ms % 3600000) / 60000),
+  };
 }
+const num = (n, unit) => `<span class="cd-num">${n}</span><span class="cd-unit">${unit}</span>`;
 
 export function renderHome(root) {
   const stats = getStats();
@@ -27,10 +36,11 @@ export function renderHome(root) {
   ];
   const draw = () => {
     const out = root.querySelector("#cd");
-    const c = countdown(EXAM);
-    out.innerHTML = c.done
-      ? '<span class="cd-done">考試日到了，加油</span>'
-      : `<span class="cd-num">${c.d}</span><span class="cd-unit">天</span><span class="cd-num">${c.h}</span><span class="cd-unit">小時</span>`;
+    const c = countdown();
+    if (c.state === "during") out.innerHTML = '<span class="cd-done">考試進行中，加油</span>';
+    else if (c.state === "over") out.innerHTML = '<span class="cd-done">考試結束了，辛苦了</span>';
+    // 最後一天改顯示小時與分鐘
+    else out.innerHTML = c.d > 0 ? num(c.d, "天") + num(c.h, "小時") : num(c.h, "小時") + num(c.m, "分");
   };
 
   root.innerHTML = `<section class="hero">
@@ -43,7 +53,7 @@ export function renderHome(root) {
         </div>
       </div>
       <div class="cd">
-        <p class="cd-lbl">距 11 月 29 日考試</p>
+        <p class="cd-lbl">距期末考　11/29（日）09:10–10:40</p>
         <p class="cd-val" id="cd"></p>
       </div>
     </section>
