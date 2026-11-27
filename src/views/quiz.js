@@ -1,13 +1,28 @@
 import { questions, questionById, topicName } from "../data.js";
-import { esc, shuffle, topicBar, getTopics, setTopics, inTopics } from "../ui.js";
+import { esc, shuffle, topicBar, activeTopics, setTopics, inTopics } from "../ui.js";
 import { load, save } from "../store.js";
 
+const Q_TOPICS = new Set(questions.map((q) => q.topic));
 const EXAM_N = 30;
 const EXAM_MIN = 25;
 const EXAM_MS = EXAM_MIN * 60 * 1000;
 const MODES = [["practice", "練習"], ["exam", "模擬考"], ["retry", "錯題重練"]];
 
 export const getWrong = () => load("quiz.wrong", []);
+// 有實體鍵盤的裝置才顯示快捷鍵說明
+const hasKeyboard = () => window.matchMedia?.("(hover: hover) and (pointer: fine)").matches;
+
+// 未完成的模擬考存在 localStorage，離開或重新整理後可以接著作答
+function loadExam() {
+  const st = load("quiz.exam", null);
+  if (!st || !Array.isArray(st.ids) || !st.ids.every((id) => questionById[id])) return null;
+  return st;
+}
+const clearExam = () => save("quiz.exam", null);
+const fmtLeft = (ms) => {
+  const left = Math.max(0, ms);
+  return `${Math.floor(left / 60000)}:${String(Math.floor((left % 60000) / 1000)).padStart(2, "0")}`;
+};
 export const getStats = () => load("quiz.stats", {});
 
 function record(q, ok) {
@@ -36,12 +51,26 @@ export function renderQuiz(root, params) {
   const setup = () => {
     screen = "setup";
     stopTimer();
+    const saved = loadExam();
     const wrongN = getWrong().filter((id) => questionById[id]).length;
     root.innerHTML = `<section class="mod">
       <header class="mod-head">
         <h1 class="h-mod">測驗</h1>
-        <p class="mod-sub">共 ${questions.length} 題。數字鍵 1–4 作答，Enter 下一題。</p>
+        <p class="mod-sub">共 ${questions.length} 題，點選項作答。${hasKeyboard() ? "鍵盤可用數字鍵 1–4 作答、Enter 下一題。" : ""}</p>
       </header>
+      ${
+        saved
+          ? `<div class="bar resume" role="status">
+              <p><b>有一份未完成的模擬考</b>　已作答 ${Object.keys(saved.answers || {}).length}／${saved.ids.length}　${
+                saved.deadline > Date.now() ? `剩 ${fmtLeft(saved.deadline - Date.now())}` : "時間已到"
+              }</p>
+              <div class="qnav qnav-tight">
+                <button type="button" class="btn btn-primary" id="resume">${saved.deadline > Date.now() ? "繼續作答" : "看這份的成績"}</button>
+                <button type="button" class="btn btn-ghost" id="discard">放棄這份</button>
+              </div>
+            </div>`
+          : ""
+      }
       <div class="seg seg-big" role="group" aria-label="模式">${MODES.map(([v, l]) => `<button type="button" class="pill" data-mode="${v}" aria-pressed="${v === mode}">${l}</button>`).join("")}</div>
       <div class="bar bar-soft mode-desc">${
         mode === "practice"
@@ -52,7 +81,7 @@ export function renderQuiz(root, params) {
       }</div>
       <div id="fb"${mode === "exam" ? " hidden" : ""}></div>
       <p class="count" id="count"></p>
-      <button type="button" class="btn btn-primary btn-lg" id="start">開始</button>
+      <button type="button" class="btn btn-primary btn-lg" id="start">${mode === "exam" && saved ? "開新的一份" : "開始"}</button>
     </section>`;
     const countEl = root.querySelector("#count");
     const pool = () => build(false);
@@ -61,7 +90,7 @@ export function renderQuiz(root, params) {
       countEl.textContent = mode === "exam" ? `將出 ${Math.min(EXAM_N, questions.length)} 題` : `符合條件：${n} 題`;
       root.querySelector("#start").disabled = n === 0;
     };
-    root.querySelector("#fb").append(topicBar(updateCount, new Set(questions.map((q) => q.topic))));
+    root.querySelector("#fb").append(topicBar(updateCount, Q_TOPICS));
     root.querySelector(".seg").addEventListener("click", (e) => {
       const b = e.target.closest("[data-mode]");
       if (!b) return;
@@ -69,11 +98,16 @@ export function renderQuiz(root, params) {
       setup();
     });
     root.querySelector("#start").addEventListener("click", start);
+    root.querySelector("#resume")?.addEventListener("click", resume);
+    root.querySelector("#discard")?.addEventListener("click", () => {
+      clearExam();
+      setup();
+    });
     updateCount();
   };
 
   const build = (shuffleIt = true) => {
-    const t = getTopics();
+    const t = activeTopics(Q_TOPICS);
     let base;
     if (mode === "exam") base = questions;
     else if (mode === "retry") base = getWrong().map((id) => questionById[id]).filter(Boolean).filter((q) => inTopics(q.topic, t));
@@ -92,7 +126,39 @@ export function renderQuiz(root, params) {
     if (mode === "exam") {
       deadline = Date.now() + EXAM_MS;
       timer = setInterval(tick, 1000);
+      persist();
     }
+    question();
+  };
+
+  const persist = () => {
+    if (mode !== "exam" || screen === "result") return;
+    save("quiz.exam", {
+      ids: list.map((q) => q.id),
+      orders: Object.fromEntries(list.map((q) => [q.id, orders[q.id].map((o) => o[0])])),
+      answers,
+      deadline,
+      i,
+    });
+  };
+
+  const resume = () => {
+    const st = loadExam();
+    if (!st) return setup();
+    mode = "exam";
+    list = st.ids.map((id) => questionById[id]);
+    orders = Object.fromEntries(
+      list.map((q) => {
+        const ids = st.orders?.[q.id];
+        const ordered = Array.isArray(ids) ? ids.map((oid) => q.options.find((o) => o[0] === oid)).filter(Boolean) : [];
+        return [q.id, ordered.length === q.options.length ? ordered : shuffle(q.options)];
+      })
+    );
+    answers = st.answers || {};
+    deadline = st.deadline;
+    i = Math.min(Math.max(0, st.i || 0), list.length - 1);
+    if (deadline <= Date.now()) return submit();
+    timer = setInterval(tick, 1000);
     question();
   };
 
@@ -121,7 +187,11 @@ export function renderQuiz(root, params) {
         <div class="prog" role="progressbar" aria-label="測驗進度" aria-valuemin="0" aria-valuemax="${list.length}" aria-valuenow="${i + 1}">
           <span class="prog-fill" style="transform: scaleX(${(i + 1) / list.length})"></span>
         </div>
-        <p class="prog-txt"><span>${progLabel}</span>${mode === "exam" ? '<span class="timer" id="timer" aria-live="off"></span>' : ""}</p>
+        <div class="prog-txt"><span>${progLabel}</span>${
+          mode === "exam"
+            ? '<span class="qtop-right"><span class="timer" id="timer" aria-live="off"></span><button type="button" class="btn btn-ghost btn-sm" id="submit">交卷</button></span>'
+            : ""
+        }</div>
       </div>
       <p class="q-meta">${esc(topicName(q.topic))}　難度 ${q.level}</p>
       <h2 class="q-prompt" tabindex="-1">${esc(q.prompt)}</h2>
@@ -151,8 +221,8 @@ export function renderQuiz(root, params) {
             ? `<button type="button" class="btn btn-primary" id="next" ${mode !== "exam" && !reveal ? "disabled" : ""}>下一題</button>`
             : `<button type="button" class="btn btn-primary" id="finish" ${mode !== "exam" && !reveal ? "disabled" : ""}>${mode === "exam" ? "交卷" : "看成績"}</button>`
         }
-        ${mode === "exam" && i < list.length - 1 ? '<button type="button" class="btn btn-ghost" id="submit">提早交卷</button>' : ""}
       </div>
+      <div id="confirm"></div>
     </section>`;
     if (mode === "exam") tick();
     root.querySelector(".opts").addEventListener("click", (e) => {
@@ -160,10 +230,10 @@ export function renderQuiz(root, params) {
       if (b) choose(b.dataset.opt);
     });
     root.querySelector("#next")?.addEventListener("click", next);
-    root.querySelector("#prev")?.addEventListener("click", () => (i--, question()));
-    root.querySelector("#finish")?.addEventListener("click", submit);
-    root.querySelector("#submit")?.addEventListener("click", submit);
-    root.querySelector("#quit")?.addEventListener("click", submit);
+    root.querySelector("#prev")?.addEventListener("click", () => (i--, persist(), question()));
+    root.querySelector("#finish")?.addEventListener("click", () => (mode === "exam" ? askSubmit() : submit()));
+    root.querySelector("#submit")?.addEventListener("click", askSubmit);
+    root.querySelector("#quit")?.addEventListener("click", () => submit());
     const focusEl = reveal ? root.querySelector("#next, #finish") : root.querySelector(".q-prompt");
     focusEl?.focus({ preventScroll: true });
   };
@@ -173,21 +243,49 @@ export function renderQuiz(root, params) {
     if (mode !== "exam" && answers[q.id] != null) return;
     answers[q.id] = id;
     if (mode !== "exam") record(q, id === q.answer);
+    persist();
     question();
   };
 
+  // 模擬考交卷前確認，預設焦點在「回去作答」
+  const askSubmit = () => {
+    const box = root.querySelector("#confirm");
+    if (!box) return;
+    screen = "confirm";
+    const left = list.filter((q) => answers[q.id] == null).length;
+    box.innerHTML = `<div class="bar confirm" role="alertdialog" aria-labelledby="cf-t">
+      <p id="cf-t"><b>${left ? `還有 ${left} 題沒作答。` : "全部作答完畢。"}</b>確定要交卷嗎？交卷後就不能再改答案。</p>
+      <div class="qnav qnav-tight">
+        <button type="button" class="btn btn-ghost" id="cf-back">回去作答</button>
+        <button type="button" class="btn btn-primary" id="cf-ok">確定交卷</button>
+      </div>
+    </div>`;
+    box.querySelector("#cf-back").addEventListener("click", () => {
+      box.innerHTML = "";
+      screen = "question";
+      root.querySelector(".q-prompt")?.focus({ preventScroll: true });
+    });
+    box.querySelector("#cf-ok").addEventListener("click", () => submit());
+    box.scrollIntoView({ block: "nearest" });
+    box.querySelector("#cf-back").focus({ preventScroll: true });
+  };
+
   const next = () => {
+    if (screen !== "question") return;
     const q = list[i];
     if (mode !== "exam" && answers[q.id] == null) return;
     if (i < list.length - 1) {
       i++;
+      persist();
       question();
-    } else submit();
+    } else if (mode === "exam") askSubmit();
+    else submit();
   };
 
   const submit = () => {
     if (screen === "result") return;
     stopTimer();
+    if (mode === "exam") clearExam();
     if (mode === "exam") list.forEach((q) => answers[q.id] != null && record(q, answers[q.id] === q.answer));
     // 練習／重練中途結束：只計已作答的題
     const graded = mode === "exam" ? list : list.filter((q) => answers[q.id] != null);
@@ -271,13 +369,13 @@ export function renderQuiz(root, params) {
     } else if (e.key === "Enter") {
       if (e.target.closest("button, a")) return; // 按鈕自己處理 Enter
       e.preventDefault();
-      if (mode === "exam") i < list.length - 1 ? (i++, question()) : submit();
-      else next();
+      next();
     }
   };
   document.addEventListener("keydown", onKey);
 
-  if (params.get("start") === "1") start();
+  if (params.get("start") === "1" && mode === "exam" && loadExam()) resume();
+  else if (params.get("start") === "1") start();
   else setup();
   if (params.get("start") === "1" && !list.length) setup();
 

@@ -3,6 +3,7 @@
  * nav: sticky module bar, current module filled orange · footer: none (study tool) · hero: settled · signature: the GRI outline, 1 down to 418 as tappable bars
  * states: default hover active focus-visible pressed disabled correct wrong · axes: light/grotesk-heavy/warm · posture: restrained · contrast: pass · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V3 · weakest: V, the outline is bars not a picture; kept it, the disclosures are the content */
+/* Hallmark · waive 24b · .modnav a at max-width 40rem · seven module links must fit a 360px phone without scrolling; 8px overflows by 14px */
 
 html, body { overflow-x: clip; }
 *, *::before, *::after { box-sizing: border-box; }
@@ -387,3 +388,20 @@ main:focus { outline: none; }
 .block-sm { margin-top: var(--sp-4); }
 .masked .nm:not(.shown) ~ .drow-en { visibility: hidden; }
 @media (max-width: 40rem) { .gri-index { top: 60px; } .drow-btn { grid-template-columns: 5.5ch minmax(0, 1fr) auto; } .drow-desc { padding-left: var(--sp-2); } }
+
+/* 模擬考：續考提示、交卷確認、頂部交卷鈕 */
+.resume { padding: var(--sp-3) var(--sp-4); margin-bottom: var(--sp-4); border-color: var(--c-primary); }
+.confirm { padding: var(--sp-3) var(--sp-4); margin-top: var(--sp-4); border-color: var(--c-primary); background: var(--c-accent-soft); }
+.qnav-tight { margin-top: var(--sp-3); }
+.qtop-right { display: inline-flex; align-items: center; gap: var(--sp-3); }
+.btn-sm { min-height: var(--tap); padding: 0 var(--sp-4); font-size: var(--fs-label); }
+.prog-txt { align-items: center; }
+
+/* 手機導覽：顯示「首頁」、縮短標籤，讓全部項目放得下 */
+.nav-home { display: none !important; }
+@media (max-width: 40rem) {
+  .nav-home { display: inline-flex !important; }
+  .nav-long { display: none; }
+  .modnav { gap: 0; }
+  .modnav a { padding: 0 7px; }
+}

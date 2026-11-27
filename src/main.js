@@ -52,5 +52,11 @@ document.addEventListener("click", (e) => {
 });
 
 document.getElementById("sources").innerHTML = sourceFooter();
+// 「跳到主要內容」不改網址，只把焦點移到主要內容
+document.querySelector(".skip")?.addEventListener("click", (e) => {
+  e.preventDefault();
+  main.focus();
+});
+
 window.addEventListener("hashchange", go);
 go();

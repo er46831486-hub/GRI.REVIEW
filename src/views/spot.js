@@ -1,5 +1,5 @@
 import { spotItems, topicName } from "../data.js";
-import { esc, topicBar, getTopics, inTopics } from "../ui.js";
+import { esc, topicBar, activeTopics, inTopics } from "../ui.js";
 import { load, save } from "../store.js";
 
 export const getSpot = () => load("spot.result", {}); // { id: { missed: [], false: [] } }
@@ -20,7 +20,7 @@ export function renderSpot(root, params) {
   </section>`;
 
   const avail = new Set(spotItems.map((s) => s.topic));
-  const visible = () => spotItems.filter((s) => inTopics(s.topic, getTopics()));
+  const visible = () => spotItems.filter((s) => inTopics(s.topic, activeTopics(avail)));
 
   const drawItems = () => {
     const res = getSpot();

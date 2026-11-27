@@ -37,6 +37,8 @@ export function shuffle(arr) {
 
 // 主題篩選 bar：翻卡、測驗、找碴共用，選擇會記住
 export const getTopics = () => load("topics", []);
+// 只算這個模組有的主題；別的模組選的主題在這裡不生效，避免出現「沒有題目」的空畫面
+export const activeTopics = (available) => getTopics().filter((t) => !available || available.has(t));
 export const setTopics = (t) => save("topics", t);
 
 export function topicBar(onChange, available) {
@@ -45,7 +47,7 @@ export function topicBar(onChange, available) {
   el.setAttribute("role", "group");
   el.setAttribute("aria-label", "主題篩選");
   const draw = () => {
-    const sel = new Set(getTopics());
+    const sel = new Set(activeTopics(available));
     el.innerHTML =
       `<button type="button" class="pill" data-t="" aria-pressed="${sel.size === 0}">全部</button>` +
       TOPICS.filter(([id]) => !available || available.has(id))

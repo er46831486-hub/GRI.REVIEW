@@ -1,14 +1,16 @@
 import { allCards, topicName } from "../data.js";
-import { esc, topicBar, getTopics, inTopics } from "../ui.js";
+import { esc, topicBar, activeTopics, inTopics } from "../ui.js";
 import { load, save } from "../store.js";
 
 // Leitner 五盒：盒 1 出現機率最高
 const WEIGHT = { 1: 16, 2: 8, 3: 4, 4: 2, 5: 1 };
+const CARD_TOPICS = new Set(allCards.map((c) => c.topic));
 const DIRS = [["mix", "混合"], ["fwd", "正向（編號 → 名稱）"], ["rev", "反向（名稱 → 編號）"]];
 
 export const getBoxes = () => load("cards.box", {});
 
 export function renderCards(root) {
+  const keyboardHint = window.matchMedia?.("(hover: hover) and (pointer: fine)").matches;
   let boxes = getBoxes();
   let dir = load("cards.dir", "mix");
   let onlyNew = load("cards.new", false);
@@ -19,7 +21,7 @@ export function renderCards(root) {
   root.innerHTML = `<section class="mod">
     <header class="mod-head">
       <h1 class="h-mod">翻卡</h1>
-      <p class="mod-sub">空白鍵翻面，1／2／3 評分。「不會」的卡會更常出現。</p>
+      <p class="mod-sub">點卡片翻面，再選「不會／有點模糊／會了」。${keyboardHint ? "鍵盤：空白鍵翻面、1／2／3 評分。" : ""}「不會」的卡會更常出現。</p>
     </header>
     <div id="fb"></div>
     <div class="optbar">
@@ -33,7 +35,7 @@ export function renderCards(root) {
   const deck = () =>
     allCards.filter(
       (c) =>
-        inTopics(c.topic, getTopics()) &&
+        inTopics(c.topic, activeTopics(CARD_TOPICS)) &&
         (!onlyNew || c.isNew) &&
         (dir === "mix" || c.dir === "concept" || c.dir === dir)
     );
@@ -74,12 +76,12 @@ export function renderCards(root) {
     const kind = card.dir === "concept" ? "概念卡" : card.dir === "fwd" ? "編號 → 名稱" : "名稱 → 編號";
     stage.innerHTML = `
       <div class="flip" data-flipped="false">
-        <button type="button" class="flip-btn" id="flip" aria-label="翻面">
+        <button type="button" class="flip-btn" id="flip">
           <span class="flip-inner">
             <span class="face face-front">
               <span class="face-meta">${esc(topicName(card.topic))}　${kind}　盒 ${boxes[card.id] || 1}</span>
               <span class="face-txt">${esc(card.front)}</span>
-              <span class="face-hint">點一下或按空白鍵翻面</span>
+              <span class="face-hint">${keyboardHint ? "點一下或按空白鍵翻面" : "點一下翻面"}</span>
             </span>
             <span class="face face-back" aria-hidden="true">
               <span class="face-meta">${esc(card.front)}</span>
@@ -130,7 +132,7 @@ export function renderCards(root) {
     drawCard();
   };
 
-  root.querySelector("#fb").append(topicBar(refresh, new Set(allCards.map((c) => c.topic))));
+  root.querySelector("#fb").append(topicBar(refresh, CARD_TOPICS));
   root.querySelector(".seg").addEventListener("click", (e) => {
     const b = e.target.closest("[data-dir]");
     if (!b) return;
